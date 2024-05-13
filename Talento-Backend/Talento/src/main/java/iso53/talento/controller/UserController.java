@@ -14,6 +14,14 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private UserService userService;
 
