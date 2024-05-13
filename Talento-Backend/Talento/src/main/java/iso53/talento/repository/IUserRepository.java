@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface IUserRepository extends MongoRepository<User, ObjectId> {
-
+    User findByEmail(String email);
 }
