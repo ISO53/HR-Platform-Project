@@ -31,23 +31,19 @@ public class UserController {
                 new ResponseEntity<>(user, HttpStatus.FOUND);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        try {
-            User _user = userService.save(user);
+    @PostMapping("/sign-in")
+    public ResponseEntity<User> signIn(@RequestParam String email, @RequestParam String password) {
+        User user = userService.findByEmail(email);
 
-            return new ResponseEntity<>(_user, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") String id, @RequestBody User user) {
-        if (!userService.existByID(new ObjectId(id))) {
+        if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
+        if (!user.getPassword().equals(passwordEncoder.encode(password))) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        // TODO what to do next here?
         return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
     }
 
