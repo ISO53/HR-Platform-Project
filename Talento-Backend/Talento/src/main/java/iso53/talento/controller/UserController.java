@@ -50,4 +50,28 @@ public class UserController {
 
         return new ResponseEntity<>(userService.save(user), HttpStatus.OK);
     }
+
+    @PostMapping("/sign-up")
+    public ResponseEntity<User> signUp(@RequestBody UserDTO userDTO) {
+        User user = userService.findByEmail(userDTO.email());
+
+        if (user != null) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+        User savedUser = userService.save(new User(
+                userDTO.userName(),
+                userDTO.userLastName(),
+                userDTO.email(),
+                passwordEncoder.encode(userDTO.password()),
+                userDTO.phoneNumber(),
+                Constants.ROLE_APPLICANT
+        ));
+
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+    }
+
+    public record UserDTO(String userName, String userLastName, String email, String password, ObjectId address,
+                          String phoneNumber) {
+    }
 }
