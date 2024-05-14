@@ -18,7 +18,9 @@ import { UiModule } from './ui/ui.module';
     AdminModule,
     UiModule
   ],
-  providers: [],
+  providers: [
+    {provide: "baseUrl", useValue:"localhost:4200/"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
