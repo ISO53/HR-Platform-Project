@@ -6,7 +6,7 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
 import { JobPostingComponent } from './ui/components/job-posting/job-posting.component';
 
 const routes: Routes = [
-  {path:"admin/", component:LayoutComponent, children:[
+  {path:"admin", component:LayoutComponent, children:[
     {path:"", component:DashboardComponent},
     {path:"job-posting", loadChildren : () => import("./admin/components/job-posting/job-posting.module")
       .then(module => module.JobPostingModule)},
