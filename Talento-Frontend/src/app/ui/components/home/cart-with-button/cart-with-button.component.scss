@@ -1,49 +1,35 @@
 .cwb_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color: #f8f9fa;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    
 }
 
-.left {
-    float: left;
-    width: 50%; /* Sol taraftaki içeriğin genişliği */
-    background-color: azure; /* Arka plan rengi */
-    padding-left: 15%; /* Sol kenardan içeriğe olan boşluk */
+.find_job, .recruiting {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    color: white; /* Buton metin rengi */
+    background-color: transparent; /* Arka plan rengi */
+    border: none; /* Kenarlık */
+    cursor: pointer; /* İmleç tipi */
+    transition: transform 0.2s ease; /* Geçiş efekti */
 }
 
-.right {
-    float: right;
-    width: 50%; /* Sağ taraftaki içeriğin genişliği */
+.find_job {
+    left: 8%; /* İş Arıyorum butonunun sol konumu */
 }
 
-/* İçerikleri daha belirgin hale getirmek için sınıf stilleri */
-.left h1 {
-    color: #333; /* Başlık metninin rengi */
+.recruiting {
+    left: 15%; /* Personel Arıyorum butonunun sağ konumu */
 }
 
-.left p {
-    font-style: italic; /* Paragraf metninin stilini eğik yap */
+.find_job:hover, .recruiting:hover {
+    transform: translateY(1px); /* Yükselme efekti */
+    color: #feecde; /* Üzerine gelindiğinde arka plan rengi */
 }
 
-/* Butonlar için stiller */
-.left .find_job,
-.left .recruiting {
-    display: block; /* Butonları blok element olarak görüntüle */
-    width: 50%; /* Butonların genişliği */
-    margin-bottom: 10px; /* Butonlar arası boşluk */
-    padding: 8px 12px; /* Buton içeriğiyle etrafı arasındaki boşluk */
-    font-size: 16px; /* Buton metin boyutu */
-    cursor: pointer; /* İmlecin buton üzerine geldiğinde el şeklinde göster */
-    background-color: #007bff; /* Arka plan rengi */
-    color: #fff; /* Metin rengi */
-    border: none; /* Kenarlık yok */
-    border-radius: 4px; /* Köşeleri yuvarla */
-}
-
-/* Buton üzerine gelindiğinde efekt */
-.left .find_job:hover,
-.left .recruiting:hover {
-    background-color: #0056b3; /* Arka plan rengi değiştir */
+img {
+    width: 100%;
+    height: auto;
 }
