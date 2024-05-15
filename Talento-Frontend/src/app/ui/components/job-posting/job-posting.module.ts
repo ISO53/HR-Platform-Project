@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JobPostingComponent } from './job-posting.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,10 @@ import { JobPostingComponent } from './job-posting.component';
     JobPostingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      {path:"",component:JobPostingComponent}
+    ]),
   ]
 })
 export class JobPostingModule { }
