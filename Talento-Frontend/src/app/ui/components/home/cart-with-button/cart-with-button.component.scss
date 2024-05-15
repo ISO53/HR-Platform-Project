@@ -1,0 +1,49 @@
+.cwb_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f8f9fa;
+}
+
+.left {
+    float: left;
+    width: 50%; /* Sol taraftaki içeriğin genişliği */
+    background-color: azure; /* Arka plan rengi */
+    padding-left: 15%; /* Sol kenardan içeriğe olan boşluk */
+}
+
+.right {
+    float: right;
+    width: 50%; /* Sağ taraftaki içeriğin genişliği */
+}
+
+/* İçerikleri daha belirgin hale getirmek için sınıf stilleri */
+.left h1 {
+    color: #333; /* Başlık metninin rengi */
+}
+
+.left p {
+    font-style: italic; /* Paragraf metninin stilini eğik yap */
+}
+
+/* Butonlar için stiller */
+.left .find_job,
+.left .recruiting {
+    display: block; /* Butonları blok element olarak görüntüle */
+    width: 50%; /* Butonların genişliği */
+    margin-bottom: 10px; /* Butonlar arası boşluk */
+    padding: 8px 12px; /* Buton içeriğiyle etrafı arasındaki boşluk */
+    font-size: 16px; /* Buton metin boyutu */
+    cursor: pointer; /* İmlecin buton üzerine geldiğinde el şeklinde göster */
+    background-color: #007bff; /* Arka plan rengi */
+    color: #fff; /* Metin rengi */
+    border: none; /* Kenarlık yok */
+    border-radius: 4px; /* Köşeleri yuvarla */
+}
+
+/* Buton üzerine gelindiğinde efekt */
+.left .find_job:hover,
+.left .recruiting:hover {
+    background-color: #0056b3; /* Arka plan rengi değiştir */
+}
