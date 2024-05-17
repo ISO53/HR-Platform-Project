@@ -16,6 +16,13 @@
     transition: transform 0.2s ease; /* Geçiş efekti */
 }
 
+h2 {
+    position: absolute;
+    top: 43%;
+    left: 8%;
+    color: white; 
+}
+
 .find_job {
     left: 8%; /* İş Arıyorum butonunun sol konumu */
 }
