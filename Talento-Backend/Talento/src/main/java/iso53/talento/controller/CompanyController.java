@@ -32,9 +32,9 @@ public class CompanyController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company) {
+    public ResponseEntity<Company> createCompany(@RequestParam String companyName) {
         try {
-            Company _company = companyService.save(company);
+            Company _company = companyService.save(new Company(companyName));
 
             return new ResponseEntity<>(_company, HttpStatus.CREATED);
         } catch (Exception e) {
