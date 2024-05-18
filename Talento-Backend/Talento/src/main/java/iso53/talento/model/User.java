@@ -9,6 +9,7 @@ public class User {
 
     @Id
     private ObjectId userId; // Primary Key
+    private ObjectId imageId;
     private String userName;
     private String userLastName;
     private String email;
@@ -18,8 +19,9 @@ public class User {
     private String profilePictureId; // Foreign Key
     private String role;
 
-    public User(String userName, String userLastName, String email, String password, String phoneNumber, String role) {
+    public User(ObjectId imageId, String userName, String userLastName, String email, String password, String phoneNumber, String role) {
         this.userId = new ObjectId();
+        this.imageId = imageId;
         this.userName = userName;
         this.userLastName = userLastName;
         this.email = email;
@@ -30,6 +32,10 @@ public class User {
 
     public ObjectId getUserId() {
         return userId;
+    }
+
+    public ObjectId getImageId() {
+        return imageId;
     }
 
     public String getUserName() {
@@ -66,6 +72,10 @@ public class User {
 
     public void setUserId(ObjectId userId) {
         this.userId = userId;
+    }
+
+    public void setImageId(ObjectId imageId) {
+        this.imageId = imageId;
     }
 
     public void setUserName(String userName) {

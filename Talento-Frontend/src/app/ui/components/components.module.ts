@@ -9,7 +9,9 @@ import { PricesModule } from './prices/prices.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     CommonModule,
     HomeModule,
