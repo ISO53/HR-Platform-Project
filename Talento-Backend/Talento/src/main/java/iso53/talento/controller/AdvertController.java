@@ -1,13 +1,16 @@
 package iso53.talento.controller;
 
 import iso53.talento.model.Advert;
+import iso53.talento.model.Company;
 import iso53.talento.service.AdvertService;
+import iso53.talento.service.CompanyService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -16,6 +19,9 @@ public class AdvertController {
 
     @Autowired
     private AdvertService advertService;
+
+    @Autowired
+    private CompanyService companyService;
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Advert>> getAllAdverts() {
@@ -32,8 +38,20 @@ public class AdvertController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Advert> createAdvert(@RequestBody Advert advert) {
+    public ResponseEntity<?> createAdvert(@RequestBody AdvertDTO advertDTO) {
         try {
+            Company company = companyService.findById(advertDTO.companyId());
+
+            if (company == null) {
+                return new ResponseEntity<>("Company not found.", HttpStatus.NOT_FOUND);
+            }
+
+            Advert advert = new Advert(
+                    advertDTO.companyId(),
+                    advertDTO.position(),
+                    advertDTO.header(),
+                    advertDTO.information());
+
             Advert _advert = advertService.save(advert);
 
             return new ResponseEntity<>(_advert, HttpStatus.CREATED);
@@ -49,5 +67,8 @@ public class AdvertController {
         }
 
         return new ResponseEntity<>(advertService.save(advert), HttpStatus.OK);
+    }
+
+    public record AdvertDTO(ObjectId companyId, String position, String header, String information, Date uploadDate) {
     }
 }
