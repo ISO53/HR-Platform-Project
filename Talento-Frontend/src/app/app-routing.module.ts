@@ -22,7 +22,9 @@ const routes: Routes = [
   {path:"prices", loadChildren: () => import("./ui/components/prices/prices.module")
   .then(module => module.PricesModule)},
   {path:"users", loadChildren: () => import("./ui/components/users/users.module")
-  .then(module => module.UsersModule)}
+  .then(module => module.UsersModule)},
+  {path:"sign-up", loadChildren: () => import("./ui/components/sign-up/sign-up.module")
+  .then(module => module.SignUpModule)}
 ];
 
 @NgModule({
