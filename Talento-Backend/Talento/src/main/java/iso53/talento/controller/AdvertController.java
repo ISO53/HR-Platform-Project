@@ -60,15 +60,6 @@ public class AdvertController {
         }
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Advert> updateAdvert(@PathVariable("id") String id, @RequestBody Advert advert) {
-        if (!advertService.existByID(new ObjectId(id))) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(advertService.save(advert), HttpStatus.OK);
-    }
-
     public record AdvertDTO(ObjectId companyId, String position, String header, String information, Date uploadDate) {
     }
 }
