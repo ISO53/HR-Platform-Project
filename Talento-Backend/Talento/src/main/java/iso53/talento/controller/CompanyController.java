@@ -71,13 +71,4 @@ public class CompanyController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Company> updateCompany(@PathVariable("id") String id, @RequestBody Company company) {
-        if (!companyService.existByID(new ObjectId(id))) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(companyService.save(company), HttpStatus.OK);
-    }
 }
