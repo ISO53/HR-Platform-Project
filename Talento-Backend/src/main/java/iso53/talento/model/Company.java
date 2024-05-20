@@ -15,13 +15,13 @@ public class Company {
     private ObjectId companyID; // Primary Key
     private List<ObjectId> userIDs; // Foreign Keys
     private String companyName;
-    private ObjectId image;
+    private String imageUrl;
 
-    public Company(String companyName, ObjectId image) {
+    public Company(String companyName, String imageUrl) {
         this.companyID = new ObjectId();
         this.userIDs = new ArrayList<>();
         this.companyName = companyName;
-        this.image = image;
+        this.imageUrl = imageUrl;
     }
 
     public ObjectId getCompanyID() {
@@ -36,8 +36,8 @@ public class Company {
         return userIDs;
     }
 
-    public ObjectId getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setUserIDs(List<ObjectId> userIDs) {
@@ -52,7 +52,7 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public void setImage(ObjectId image) {
-        this.image = image;
+    public void setImage(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
