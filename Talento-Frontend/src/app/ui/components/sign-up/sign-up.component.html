@@ -15,6 +15,18 @@
                     <label for="password">Şifre</label>
                     <input type="password" id="password" [(ngModel)]="password" name="password" required>
                 </div>
+
+                <div class="slider-container">
+                    <label for="userType">Kullanıcı Türü:</label>
+                    <div class="slider">
+                        <input type="radio" name="userType" id="standard" value="standard" checked>
+                        <input type="radio" name="userType" id="hr" value="hr">
+                        <div class="slider-selection"></div>
+                        <label for="standard" class="slider-label">Standart</label>
+                        <label for="hr" class="slider-label">HR</label>
+                    </div>
+                </div>
+
                 <button type="submit" class="signup-button" (click)="signUp(fullName, email, password)">Kayıt Ol</button>
             </form>
             <p class="login-text">Zaten hesabınız var mı? <a href="#">Giriş Yap</a></p>
