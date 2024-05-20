@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { MainDesignComponent } from './main-design/main-design.component';
 import { CartWithButtonComponent } from './cart-with-button/cart-with-button.component';
 import { CartButtonlessComponent } from './cart-buttonless/cart-buttonless.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { CartButtonlessComponent } from './cart-buttonless/cart-buttonless.compo
     CartButtonlessComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class HomeModule { }
