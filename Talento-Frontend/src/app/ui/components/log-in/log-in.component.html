@@ -5,15 +5,15 @@
             <form>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" [(ngModel)]="email" name="email" required>
+                    <input type="email" id="email" [(ngModel)]="email" name="email" required />
                 </div>
                 <div class="form-group">
                     <label for="password">Şifre</label>
-                    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                    <input type="password" id="password" [(ngModel)]="password" name="password" required />
                 </div>
                 <button type="submit" class="login-button" (click)="login(email, password)">Giriş Yap</button>
             </form>
-            <p class="signup-text">Hesabınız yok mu? <a href="#">Kayıt Ol</a></p>
+            <p class="signup-text">Hesabınız yok mu? <a routerLink="sign-up">Kayıt Ol</a></p>
         </div>
     </div>
 </body>
