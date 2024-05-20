@@ -1,3 +1,88 @@
-.activated{
-    background-color: azure;
+
+
+.options-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1%;
+    width: 1000px;
+
+}
+
+.options-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.options-content-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-logo {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    max-height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+.company-name {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.job-description {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.search-span{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.search-span p{
+   margin: 0;
+}
+
+.search-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .job-card {
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+
+    .company-name,
+    .job-description {
+        font-size: 13px;
+    }
+
+    .skills li {
+        font-size: 12px;
+    }
 }
