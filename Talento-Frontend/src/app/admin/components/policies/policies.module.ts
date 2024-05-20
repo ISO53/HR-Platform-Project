@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from './layout/layout.module';
+import { PoliciesComponent } from './policies.component';
 import { RouterModule } from '@angular/router';
-
 
 
 
 @NgModule({
   declarations: [
+    PoliciesComponent
   ],
   imports: [
     CommonModule,
-    LayoutModule
+    RouterModule.forChild([
+      {path:"",component:PoliciesComponent}
+    ])
   ]
 })
-export class AdminModule { }
+export class PoliciesModule { }

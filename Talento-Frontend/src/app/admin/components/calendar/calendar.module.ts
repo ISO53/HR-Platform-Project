@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from './layout/layout.module';
+import { CalendarComponent } from './calendar.component';
 import { RouterModule } from '@angular/router';
-
 
 
 
 @NgModule({
   declarations: [
+    CalendarComponent
   ],
   imports: [
     CommonModule,
-    LayoutModule
+    RouterModule.forChild([
+      {path:"",component:CalendarComponent}
+    ]),
   ]
 })
-export class AdminModule { }
+export class CalendarModule { }

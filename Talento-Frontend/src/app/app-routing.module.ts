@@ -12,6 +12,14 @@ const routes: Routes = [
       .then(module => module.JobPostingModule)},
     {path:"skill-test", loadChildren : () => import("./admin/components/skill-tests/skill-tests.module")
       .then(module => module.SkillTestsModule)},
+    {path:"analyzes", loadChildren: () => import("./admin/components/analyzes/analyzes.module")
+      .then(module => module.AnalyzesModule)},
+    {path:"application",loadChildren: () => import("./admin/components/application/application.module")
+    .then(module => module.ApplicationModule)},
+    {path:"calendar",loadChildren: () => import("./admin/components/calendar/calendar.module")
+    .then(module => module.CalendarModule)},
+    {path:"policies",loadChildren: () => import("./admin/components/policies/policies.module")
+    .then(module => module.PoliciesModule)},
   ]},
   {path:"",  component:HomeComponent},
   {path:"job-posting", loadChildren: () => import("./ui/components/job-posting/job-posting.module")
