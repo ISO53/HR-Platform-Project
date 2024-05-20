@@ -21,12 +21,6 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private ImageService imageService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
     private UserService userService;
 
     @GetMapping("/getAll")
@@ -51,7 +45,7 @@ public class UserController {
             return new ResponseEntity<>("User not found.", HttpStatus.NOT_FOUND);
         }
 
-        if (!user.getPassword().equals(passwordEncoder.encode(request.password()))) {
+        if (!user.getPassword().equals(request.password())) {
             return new ResponseEntity<>("Wrong credentials.", HttpStatus.UNAUTHORIZED);
         }
 
@@ -83,7 +77,7 @@ public class UserController {
                 userDTO.fullName().split(" ", 2)[0],
                 userDTO.fullName().split(" ", 2)[1],
                 userDTO.email(),
-                passwordEncoder.encode(userDTO.password()),
+                userDTO.password(), // yes not hashed password, I get it
                 null,
                 Constants.ROLE_APPLICANT
         ));
