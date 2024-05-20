@@ -7,10 +7,8 @@ import iso53.talento.service.UserService;
 import iso53.talento.util.Constants;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,15 +44,15 @@ public class UserController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<User> signIn(@RequestParam String email, @RequestParam String password) {
-        User user = userService.findByEmail(email);
+    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
+        User user = userService.findByEmail(request.email());
 
         if (user == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("User not found.", HttpStatus.NOT_FOUND);
         }
 
-        if (!user.getPassword().equals(passwordEncoder.encode(password))) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        if (!user.getPassword().equals(passwordEncoder.encode(request.password()))) {
+            return new ResponseEntity<>("Wrong credentials.", HttpStatus.UNAUTHORIZED);
         }
 
         // TODO what to do next here?
@@ -69,31 +67,32 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
-        String fileName;
-        try {
-            fileName = imageService.save(ImageService.IMAGE_DIRECTORY, userDTO.image());
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        Image _image = new Image(fileName);
-
-        Image createdImage = imageService.save(_image);
+//        String fileName;
+//        try {
+//            fileName = imageService.save(ImageService.IMAGE_DIRECTORY, userDTO.image());
+//        } catch (IOException e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//        Image _image = new Image(fileName);
+//
+//        Image createdImage = imageService.save(_image);
+    // TODO handle image on another part
 
         User savedUser = userService.save(new User(
-                createdImage.getImageId(),
-                userDTO.userName(),
-                userDTO.userLastName(),
+                null,
+                userDTO.fullName().split(" ", 2)[0],
+                userDTO.fullName().split(" ", 2)[1],
                 userDTO.email(),
                 passwordEncoder.encode(userDTO.password()),
-                userDTO.phoneNumber(),
+                null,
                 Constants.ROLE_APPLICANT
         ));
 
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-    public record UserDTO(MultipartFile image, String userName, String userLastName, String email, String password,
-                          ObjectId address,
-                          String phoneNumber) {
+    public record UserDTO(String fullName, String email, String password) {
     }
+
+    public record SignInRequest(String email, String password) {}
 }
