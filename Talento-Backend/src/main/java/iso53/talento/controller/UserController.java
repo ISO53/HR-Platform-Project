@@ -57,7 +57,6 @@ public class UserController {
         }
 
         User savedUser = userService.save(new User(
-                null,
                 userDTO.fullName().split(" ", 2)[0],
                 userDTO.fullName().split(" ", 2)[1],
                 userDTO.email(),
