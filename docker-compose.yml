@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27107"
+
+  mongo_data_load:
+    container_name: Talento-DB
+    build: Talento-DB
+    depends_on:
+      - mongo
+
+  backend:
+    image: springboot
+    container_name: Talento-Backend
+    build: Talento-Backend
+    ports:
+      - 8080:8080
+    links:
+      - mongo
+    depends_on:
+      - mongo
+
+  frontend:
+    container_name: Talento-Frontend
+    build: Talento-Frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
