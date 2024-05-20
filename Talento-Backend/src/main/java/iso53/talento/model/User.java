@@ -9,19 +9,17 @@ public class User {
 
     @Id
     private ObjectId userId; // Primary Key
-    private ObjectId imageId;
     private String userName;
     private String userLastName;
     private String email;
     private String password; // Hashed
-    private ObjectId address;
+    private String address;
     private String phoneNumber;
-    private String profilePictureId; // Foreign Key
+    private String profilePictureUrl; // Foreign Key
     private String role;
 
-    public User(ObjectId imageId, String userName, String userLastName, String email, String password, String phoneNumber, String role) {
+    public User(String userName, String userLastName, String email, String password, String phoneNumber, String role) {
         this.userId = new ObjectId();
-        this.imageId = imageId;
         this.userName = userName;
         this.userLastName = userLastName;
         this.email = email;
@@ -32,10 +30,6 @@ public class User {
 
     public ObjectId getUserId() {
         return userId;
-    }
-
-    public ObjectId getImageId() {
-        return imageId;
     }
 
     public String getUserName() {
@@ -54,7 +48,7 @@ public class User {
         return password;
     }
 
-    public ObjectId getAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -62,8 +56,8 @@ public class User {
         return phoneNumber;
     }
 
-    public String getProfilePictureId() {
-        return profilePictureId;
+    public String getProfilePictureUrl() {
+        return profilePictureUrl;
     }
 
     public String getRole() {
@@ -72,10 +66,6 @@ public class User {
 
     public void setUserId(ObjectId userId) {
         this.userId = userId;
-    }
-
-    public void setImageId(ObjectId imageId) {
-        this.imageId = imageId;
     }
 
     public void setUserName(String userName) {
@@ -94,7 +84,7 @@ public class User {
         this.password = password;
     }
 
-    public void setAddress(ObjectId address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -102,8 +92,8 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setProfilePictureId(String profilePictureId) {
-        this.profilePictureId = profilePictureId;
+    public void setProfilePictureUrl(String profilePictureUrl) {
+        this.profilePictureUrl = profilePictureUrl;
     }
 
     public void setRole(String role) {

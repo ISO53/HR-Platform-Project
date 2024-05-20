@@ -40,14 +40,14 @@ public class AdvertController {
     @PostMapping("/create")
     public ResponseEntity<?> createAdvert(@RequestBody AdvertDTO advertDTO) {
         try {
-            Company company = companyService.findById(advertDTO.companyId());
+            Company company = companyService.findById(new ObjectId(advertDTO.companyId()));
 
             if (company == null) {
                 return new ResponseEntity<>("Company not found.", HttpStatus.NOT_FOUND);
             }
 
             Advert advert = new Advert(
-                    advertDTO.companyId(),
+                    new ObjectId(advertDTO.companyId()),
                     advertDTO.position(),
                     advertDTO.header(),
                     advertDTO.information());
@@ -60,6 +60,6 @@ public class AdvertController {
         }
     }
 
-    public record AdvertDTO(ObjectId companyId, String position, String header, String information, Date uploadDate) {
+    public record AdvertDTO(String companyId, String position, String header, String information) {
     }
 }

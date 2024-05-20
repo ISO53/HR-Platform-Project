@@ -1,20 +1,15 @@
 package iso53.talento.controller;
 
 import iso53.talento.model.Company;
-import iso53.talento.model.Image;
 import iso53.talento.model.User;
 import iso53.talento.service.CompanyService;
-import iso53.talento.service.ImageService;
 import iso53.talento.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,9 +21,6 @@ public class CompanyController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private ImageService imageService;
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Company>> getAllCompanies() {
@@ -45,16 +37,14 @@ public class CompanyController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Company> createCompany(@RequestParam String companyName, @RequestParam MultipartFile image) {
+    public ResponseEntity<Company> createCompany(@RequestBody CompanyDTO companyDTO) {
         try {
-            String fileName = imageService.save(ImageService.IMAGE_DIRECTORY, image);
-            Image _image = new Image(fileName);
-
-            Image createdImage = imageService.save(_image);
-
-            Company _company = companyService.save(new Company(companyName, createdImage.getImageId()));
-
-            return new ResponseEntity<>(_company, HttpStatus.CREATED);
+            Company company = companyService.save(
+                    new Company(
+                            companyDTO.companyName(),
+                            companyDTO.imageUrl())
+            );
+            return new ResponseEntity<>(company, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -83,5 +73,8 @@ public class CompanyController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public record CompanyDTO(String companyName, String imageUrl) {
     }
 }
