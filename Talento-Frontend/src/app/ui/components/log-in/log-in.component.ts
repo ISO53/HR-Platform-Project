@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-log-in',
@@ -10,7 +11,7 @@ export class LogInComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -18,10 +19,17 @@ export class LogInComponent implements OnInit {
 
   login(email: string, password: string): void {
     const url = 'http://localhost:8080/user/sign-in';
-    this.http.post<any>(url, {email, password}).subscribe(response => {
+    console.log(email + " " + password);
+    this.http.post<any>(url, {email: email, password: password}).subscribe(response => {
       console.log(response);
+      this.snackBar.open('Login successful', 'Close', {
+        duration: 2000,
+      });
     }, error => {
       console.error(error);
+      this.snackBar.open('Login failed. ' + error.error.toString(), 'Close', {
+        duration: 2000,
+      });
     });
   }
 }
