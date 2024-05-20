@@ -1,19 +1,14 @@
 package iso53.talento.controller;
 
-import iso53.talento.model.Image;
 import iso53.talento.model.User;
-import iso53.talento.service.ImageService;
 import iso53.talento.service.UserService;
 import iso53.talento.util.Constants;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -61,17 +56,6 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
 
-//        String fileName;
-//        try {
-//            fileName = imageService.save(ImageService.IMAGE_DIRECTORY, userDTO.image());
-//        } catch (IOException e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//        Image _image = new Image(fileName);
-//
-//        Image createdImage = imageService.save(_image);
-    // TODO handle image on another part
-
         User savedUser = userService.save(new User(
                 null,
                 userDTO.fullName().split(" ", 2)[0],
@@ -88,5 +72,6 @@ public class UserController {
     public record UserDTO(String fullName, String email, String password) {
     }
 
-    public record SignInRequest(String email, String password) {}
+    public record SignInRequest(String email, String password) {
+    }
 }
