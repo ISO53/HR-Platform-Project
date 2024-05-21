@@ -1,1 +1,16 @@
-<p>policies works!</p>
+<div class="policies-container">
+    <h1>Şirket Politikaları</h1>
+    <div class="policy-list">
+      <div *ngFor="let policy of policies" (click)="selectPolicy(policy)" class="policy-card">
+        <h2>{{ policy.title }}</h2>
+        <p>{{ policy.description }}</p>
+      </div>
+    </div>
+    <div *ngIf="selectedPolicy" class="policy-details">
+      <h2>{{ selectedPolicy.title }}</h2>
+      <div [innerHTML]="selectedPolicy.content"></div>
+      <button (click)="closeDetails()">Kapat</button>
+    </div>
+  </div>
+  
+  
