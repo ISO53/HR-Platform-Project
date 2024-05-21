@@ -1,0 +1,70 @@
+{
+    "name": "Yusuf İhsan",
+    "surname": "Şimşek",
+    "email": "ihsansimsek5335@gmail.com",
+    "address": "5. Levent / İstanbul / Turkey",
+    "undergraduateEducation": {
+        "university": "Fatih Sultan Mehmet Vakıf University",
+        "degree": "Computer Engineering",
+        "startDate": "Aug 2020",
+        "endDate": "Present",
+        "GPA": 3.0
+    },
+    "mastersDegreeOrDoctorate": null,
+    "dateOfGraduation": "Jun 2019",
+    "businessExperience": [
+        {
+            "position": "Freelance Web Developer",
+            "company": "My Own Business",
+            "startDate": "Mar 2023",
+            "endDate": "Apr 2023",
+            "description": "Created a dynamic and responsive website for a curtain sales company using JavaScript, CSS, and HTML."
+        },
+        {
+            "position": "Freelance Web Developer",
+            "company": "My Own Business",
+            "startDate": "Sep 2022",
+            "endDate": "Oct 2022",
+            "description": "Created a promotional product catalog website using HTML, CSS, and JS."
+        },
+        {
+            "position": "Backend Developer (Intern)",
+            "company": "PIA (People in Action)",
+            "startDate": "Jun 2022",
+            "endDate": "Jul 2022",
+            "description": "Gained hands-on experience in Microservices, Java SpringBoot, Hibernate, PostgreSQL, MongoDB, and the OpenWeatherMap API."
+        },
+        {
+            "position": "Software System Architect (Part Time Worker)",
+            "company": "Mobilvery",
+            "startDate": "Dec 2023",
+            "endDate": "Present",
+            "description": "Formulating application logic, creating APIs, ensuring system security for the Mobilvery web application."
+        },
+        {
+            "position": "Backend Developer (Intern)",
+            "company": "Deka Technology",
+            "startDate": "Aug 2023",
+            "endDate": "Sep 2023",
+            "description": "Undertook the project of creating a DNS Log Analyzer using Java, RabbitMQ, and Elasticsearch."
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "My Own Business",
+            "startDate": "May 2023",
+            "endDate": "Jul 2023",
+            "description": "Led the development of a dynamic curtain selling website using WooCommerce."
+        }
+    ],
+    "githubUrl": "github.com/ISO53",
+    "githubScore": null,
+    "skills": {
+        "backendDevelopment": ["Java", "Spring Boot/Security", "Hibernate", "Microservices"],
+        "frontendDevelopment": ["HTML", "CSS", "JavaScript", "Vue.js"],
+        "databases": ["PostgreSQL", "MongoDB"],
+        "otherTechnologies": ["Python", "C", "AWS", "Google Firebase", "Vercel", "Electron.js"],
+        "tools": ["Git", "Docker", "Maven", "npm"]
+    },
+    "certificates": null,
+    "languages": null
+}
