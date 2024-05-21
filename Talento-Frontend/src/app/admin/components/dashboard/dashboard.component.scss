@@ -71,18 +71,22 @@
   width: 300px;
   height: 300px;
   bottom: 0;
-  left: 23%;
+  left: 17%;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
-  transition: transform 150ms ease;
+  transition: transform 250ms ease;
 }
 
 .calendar-div:hover .calendar-image:nth-child(15) {
-  transform: rotate(25deg);
+  transform: rotate(30deg) scale(105%);
+}
+
+.calendar-div:hover .calendar-image:nth-child(16) {
+  transform: scale(105%);
 }
 
 .calendar-div:hover .calendar-image:nth-child(17) {
-  transform: rotate(-25deg);
+  transform: rotate(-30deg) scale(105%);
 }
 
 .calendar-image:nth-child(15) {
