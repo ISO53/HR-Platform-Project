@@ -32,22 +32,46 @@ public class ApplicationController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Application> createApplication(@RequestBody Application application) {
+    public ResponseEntity<Application> createApplication(@RequestBody ApplicationDTO applicationDTO) {
         try {
-            Application _application = applicationService.save(application);
+            Application application = applicationService.save(new Application(
+                    applicationDTO.advertID(),
+                    applicationDTO.userID(),
+                    applicationDTO.name(),
+                    applicationDTO.surname(),
+                    applicationDTO.email(),
+                    applicationDTO.address(),
+                    applicationDTO.undergraduateEducation(),
+                    applicationDTO.mastersDegreeOrDoctorate(),
+                    applicationDTO.dateOfGraduation(),
+                    applicationDTO.businessExperience(),
+                    applicationDTO.githubUrl(),
+                    applicationDTO.skills(),
+                    applicationDTO.certificates(),
+                    applicationDTO.languages(),
+                    ""
+            ));
 
-            return new ResponseEntity<>(_application, HttpStatus.CREATED);
+            return new ResponseEntity<>(application, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Application> updateApplication(@PathVariable("id") String id, @RequestBody Application application) {
+    public ResponseEntity<Application> updateApplication(@PathVariable("id") String id,
+                                                         @RequestBody Application application) {
         if (!applicationService.existByID(new ObjectId(id))) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(applicationService.save(application), HttpStatus.OK);
+    }
+
+    public record ApplicationDTO(ObjectId applicationID, ObjectId advertID, ObjectId userID, String name,
+                                 String surname, String email, String address, String undergraduateEducation,
+                                 String mastersDegreeOrDoctorate, String dateOfGraduation,
+                                 List<String> businessExperience, String githubUrl, List<String> skills,
+                                 List<String> certificates, List<String> languages) {
     }
 }
