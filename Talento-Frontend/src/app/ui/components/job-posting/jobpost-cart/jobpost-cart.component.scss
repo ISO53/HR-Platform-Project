@@ -1,8 +1,109 @@
+.job-posting-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.job-listings-container {
+  margin-top: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+}
+
 .job-card {
-    max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.job-position {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.6em;
+  max-height: 1.6em;
+}
+
+.company-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: scale-down;
+}
+
+h2 {
+  margin: 10px 0;
+}
+
+.company-name {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.job-description {
+  color: #777;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6em;
+  max-height: 3.2em;
+}
+
+.skills {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skills li {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .job-card {
+    padding: 15px;
   }
-  
-.job-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+
+  h2 {
+    font-size: 18px;
   }
+
+  .company-name,
+  .job-description {
+    font-size: 13px;
+  }
+
+  .skills li {
+    font-size: 12px;
+  }
+}

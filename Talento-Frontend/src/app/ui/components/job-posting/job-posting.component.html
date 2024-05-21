@@ -8,72 +8,7 @@ $ -->
         <app-options-cart></app-options-cart>
 
         <div class="job-listings-container">
-            <div class="job-card">
-                <img src="./assets/brands/amazon.png" alt="Amazon Logo" class="company-logo" />
-                <h2>Software Engineer</h2>
-                <p class="company-name">Amazon</p>
-                <p class="job-description">Web uygulamalarını geliştirmek ve bakımını yapmak. Takım çalışmasına yatkın, hızlı çözüm üretebilen, yenilikçi bir yazılım mühendisi arıyoruz. Mevcut sistemlerin iyileştirilmesi ve yeni özelliklerin eklenmesi konularında aktif rol alması beklenmektedir.</p>
-                <ul class="skills">
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Node.js</li>
-                </ul>
-            </div>
-            <div class="job-card">
-                <img src="./assets/brands/apple.png" alt="Apple Logo" class="company-logo" />
-                <h2>Backend Developer</h2>
-                <p class="company-name">Apple</p>
-                <p class="job-description">Sunucu tarafı mantığını oluşturmak ve optimize etmek. Yüksek performanslı ve güvenilir sistemler geliştirebilen, problem çözme becerisi yüksek bir backend geliştirici arıyoruz. Veri tabanı yönetimi ve API geliştirme konularında deneyim sahibi olması beklenmektedir.</p>
-                <ul class="skills">
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>REST APIs</li>
-                </ul>
-            </div>
-            <div class="job-card">
-                <img src="./assets/brands/facebook.png" alt="Facebook Logo" class="company-logo" />
-                <h2>Frontend Developer</h2>
-                <p class="company-name">Facebook</p>
-                <p class="job-description">Duyarlı web arayüzleri oluşturmak. Kullanıcı deneyimini en üst düzeye çıkaracak, modern web teknolojileri konusunda bilgi sahibi, yaratıcı bir frontend geliştirici arıyoruz.</p>
-                <ul class="skills">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
-            </div>
-            <div class="job-card">
-                <img src="./assets/brands/fiat.png" alt="Fiat Logo" class="company-logo" />
-                <h2>Full Stack Developer</h2>
-                <p class="company-name">Fiat</p>
-                <p class="job-description">Hem frontend hem de backend üzerinde çalışmak. Proje gereksinimlerine göre esnek ve çözüm odaklı çalışacak, tüm geliştirme süreçlerinde yer alacak bir full stack geliştirici arıyoruz. Yeni teknolojilere hızlı adapte olabilen ve sürekli öğrenmeye açık olmalı.</p>
-                <ul class="skills">
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Node.js</li>
-                </ul>
-            </div>
-            <div class="job-card">
-                <img src="./assets/brands/netflix.png" alt="Netflix Logo" class="company-logo" />
-                <h2>DevOps Engineer</h2>
-                <p class="company-name">Netflix</p>
-                <p class="job-description">Altyapıyı yönetmek ve otomatikleştirmek. Sürekli entegrasyon ve sürekli teslimat (CI/CD) süreçlerini iyileştirecek, sistem güvenliğini ve performansını artıracak bir DevOps mühendisi arıyoruz. Bulut teknolojileri ve konteynerizasyon konularında uzman olmalı.</p>
-                <ul class="skills">
-                    <li>AWS</li>
-                    <li>Docker</li>
-                    <li>Kubernetes</li>
-                </ul>
-            </div>
-            <div class="job-card">
-                <img src="./assets/brands/youtube.png" alt="Youtube Logo" class="company-logo" />
-                <h2>Data Scientist</h2>
-                <p class="company-name">Youtube</p>
-                <p class="job-description">Karmaşık verileri analiz etmek ve yorumlamak. Veri bilimi yöntemlerini kullanarak içgörüler elde edecek ve iş kararlarını yönlendirecek bir veri bilimci arıyoruz. Büyük veri setleriyle çalışarak, makine öğrenmesi algoritmalarını geliştirecek ve uygulayacak.</p>
-                <ul class="skills">
-                    <li>Python</li>
-                    <li>Machine Learning</li>
-                    <li>SQL</li>
-                </ul>
-            </div>
+            <app-jobpost-cart *ngFor="let advert of adverts" [advert]="advert"></app-jobpost-cart>
         </div>
     </div>
 </body>
