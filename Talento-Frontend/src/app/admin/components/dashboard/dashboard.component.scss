@@ -1,9 +1,7 @@
 .main-div {
   position: absolute;
-    left: 20%;
-    top: 12%;
-  width: 100%;
-  height: 100%;
+  left: 20%;
+  top: 12%;
 }
 
 .header {
@@ -14,7 +12,6 @@
 .inner-div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -56,6 +53,7 @@
   margin: 0 20px 20px;
   overflow: hidden;
   border-radius: 20px;
+  max-width: 450px;
 }
 
 .calendar-div {
