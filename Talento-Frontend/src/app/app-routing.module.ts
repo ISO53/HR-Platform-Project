@@ -4,6 +4,7 @@ import { HomeComponent } from './ui/components/home/home.component';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { JobPostingComponent } from './ui/components/job-posting/job-posting.component';
+import { JobDetailsComponent } from './ui/components/job-details/job-details.component';
 
 const routes: Routes = [
   {path:"admin", component:LayoutComponent, children:[
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:"users", loadChildren: () => import("./ui/components/users/users.module")
   .then(module => module.UsersModule)},
   {path:"sign-up", loadChildren: () => import("./ui/components/sign-up/sign-up.module")
-  .then(module => module.SignUpModule)}
+  .then(module => module.SignUpModule)},
+  { path: 'job/:id', component: JobDetailsComponent },
 ];
 
 @NgModule({
