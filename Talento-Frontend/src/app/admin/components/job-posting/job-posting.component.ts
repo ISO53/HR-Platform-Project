@@ -19,7 +19,6 @@ export class JobPostingComponent implements OnInit {
   fetchAdverts() {
     const user = JSON.parse(localStorage.getItem('user'));
     this.http.get(`http://localhost:8080/advert/getAll/${user.userId}`).subscribe((response: any[]) => {
-      console.log(response)
       this.adverts = response;
     });
   }
