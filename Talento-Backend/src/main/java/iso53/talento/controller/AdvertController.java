@@ -48,6 +48,7 @@ public class AdvertController {
 
             Advert advert = new Advert(
                     new ObjectId(advertDTO.companyId()),
+                    advertDTO.skills(),
                     advertDTO.position(),
                     advertDTO.header(),
                     advertDTO.information());
@@ -60,6 +61,6 @@ public class AdvertController {
         }
     }
 
-    public record AdvertDTO(String companyId, String position, String header, String information) {
+    public record AdvertDTO(String companyId, List<String> skills, String position, String header, String information) {
     }
 }

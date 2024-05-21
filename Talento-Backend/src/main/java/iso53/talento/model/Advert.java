@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Document(collection = "advert")
 public class Advert {
@@ -15,11 +16,13 @@ public class Advert {
     private String position;
     private String header;
     private String information;
+    private List<String> skills;
     private Date uploadDate;
 
-    public Advert(ObjectId companyId, String position, String header, String information) {
+    public Advert(ObjectId companyId, List<String> skills, String position, String header, String information) {
         this.advertId = new ObjectId();
         this.companyId = companyId;
+        this.skills = skills;
         this.position = position;
         this.header = header;
         this.information = information;
@@ -72,6 +75,14 @@ public class Advert {
 
     public void setUploadDate(Date uploadDate) {
         this.uploadDate = uploadDate;
+    }
+
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }
 
