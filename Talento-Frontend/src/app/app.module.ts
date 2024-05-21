@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarComponent } from './admin/components/calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
