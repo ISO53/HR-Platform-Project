@@ -1,17 +1,15 @@
 <div class="job-card">
-    <img src="./assets/brands/amazon.png" alt="Amazon Logo" class="company-logo" />
-    <div class="job-details">
-        <h3>Software Engineer</h3>
-        <p class="company-name">Amazon</p>
-        <p class="job-description">Amazon'da web uygulamalarının geliştirilmesi ve bakımı sorumluluğunu üstlenecek deneyimli bir Yazılım Mühendisi arıyoruz.</p>
-        <ul class="skills">
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-        </ul>
-    </div>
-    <div class="job-actions">
-        <button class="edit-job-btn">Düzenle</button>
-        <button class="delete-job-btn">Sil</button>
-    </div>
+  <img src="{{advert.imageUrl}}" alt="Logo" class="company-logo"/>
+  <div class="job-details">
+    <h3>{{ advert.position }}</h3>
+    <p class="company-name">{{ advert.companyName }}</p>
+    <p class="job-description">{{ advert.information }}</p>
+    <ul class="skills">
+      <li *ngFor="let skill of advert.skills">{{ skill }}</li>
+    </ul>
+  </div>
+  <div class="job-actions">
+    <button class="edit-job-btn">Edit</button>
+    <button class="delete-job-btn">Delete</button>
+  </div>
 </div>

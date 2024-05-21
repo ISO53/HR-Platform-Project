@@ -1,40 +1,10 @@
 <body>
-    <div class="hr-job-listings-container">
-        <h2>İş İlanları Yönetimi</h2>
-        <button class="add-job-btn">Yeni İlan Ekle</button>
-        <div class="job-card">
-            <img src="./assets/brands/amazon.png" alt="Amazon Logo" class="company-logo">
-            <div class="job-details">
-                <h3>Software Engineer</h3>
-                <p class="company-name">Amazon</p>
-                <p class="job-description">Amazon'da web uygulamalarının geliştirilmesi ve bakımı sorumluluğunu üstlenecek deneyimli bir Yazılım Mühendisi arıyoruz.</p>
-                <ul class="skills">
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Node.js</li>
-                </ul>
-            </div>
-            <div class="job-actions">
-                <button class="edit-job-btn">Düzenle</button>
-                <button class="delete-job-btn">Sil</button>
-            </div>
-        </div>
-        <div class="job-card">
-            <img src="./assets/brands/apple.png" alt="Apple Logo" class="company-logo">
-            <div class="job-details">
-                <h3>Backend Developer</h3>
-                <p class="company-name">Apple</p>
-                <p class="job-description">Apple'da sunucu tarafı mantığını geliştirmek ve optimize etmek için yetenekli bir Backend Developer arıyoruz.</p>
-                <ul class="skills">
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>REST APIs</li>
-                </ul>
-            </div>
-            <div class="job-actions">
-                <button class="edit-job-btn">Düzenle</button>
-                <button class="delete-job-btn">Sil</button>
-            </div>
-        </div>
-    </div>
+<div class="hr-job-listings-container">
+  <h2>İş İlanları Yönetimi</h2>
+  <button class="add-job-btn">Yeni İlan Ekle</button>
+
+  <app-jobposting-card *ngFor="let advert of adverts"
+                       [advert]="advert"></app-jobposting-card>
+
+</div>
 </body>
