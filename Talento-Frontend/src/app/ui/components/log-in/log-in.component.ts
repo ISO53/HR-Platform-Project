@@ -22,6 +22,8 @@ export class LogInComponent implements OnInit {
     console.log(email + " " + password);
     this.http.post<any>(url, {email: email, password: password}).subscribe(response => {
       console.log(response);
+      // Store the response data in localStorage
+      localStorage.setItem('user', JSON.stringify(response));
       this.snackBar.open('Login successful', 'Close', {
         duration: 2000,
       });
