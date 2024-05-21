@@ -13,7 +13,7 @@ import { CalendarComponent } from '../calendar/calendar.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path:"",component:CalendarComponent}
+      {path:"",component:ApplicationComponent}
     ]),
   ]
 })
