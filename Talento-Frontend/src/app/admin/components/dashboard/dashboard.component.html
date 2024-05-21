@@ -1,1 +1,70 @@
-<p>dashboard works!</p>
+<div class="main-div">
+  <h1 class="header">Admin Paneli</h1>
+  <div class="inner-div">
+
+    <div class="link-to-side-outer-div">
+
+      <div class="link-to-side-div" (click)="navigateToJobPosting()">
+        <div>
+          <img class="icon" src="/assets/brands/ad.png" alt="İlanlar">
+        </div>
+        <div class="link-to-side-right-div">
+          <h2>İlanlar</h2>
+          <p>3 farklı pozisyon, 5 farklı yetenek için açılmış 4 farklı ilanınız
+            bulunmaktadır.</p>
+        </div>
+      </div>
+
+      <div class="link-to-side-div" (click)="navigateToTalentTest()">
+        <div>
+          <img class="icon" src="/assets/brands/applicant.png"
+               alt="Yetenek Testleri">
+        </div>
+        <div class="link-to-side-right-div">
+          <h2>Yetenek Testleri</h2>
+          <p>2 tanesi sonuçlanmış 4 tanesi devam eden toplamda 6 tane yetenek
+            testiniz bulunmaktadır.</p>
+        </div>
+      </div>
+
+      <div class="link-to-side-div" (click)="navigateToApplicants()">
+        <div>
+          <img class="icon" src="/assets/brands/test.png" alt="Başvurular">
+        </div>
+        <div class="link-to-side-right-div">
+          <h2>Başvurular</h2>
+          <p>5 tane okunmamış 24 tane okunmuş toplamda 29 tane başvurunuz
+            bulunmaktadır.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="calendar-outer-div">
+
+      <div class="calendar-div" (click)="navigateToCalendar()">
+        <h2 style="text-align: center; margin-top: 10px; z-index: 5">Takviminizde yeni etkinlikler var, hemen göz atın!</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img class="calendar-image" src="assets/brands/calendar.jpg">
+        <img class="calendar-image" src="assets/brands/calendar.jpg">
+        <img class="calendar-image" src="assets/brands/calendar.jpg">
+      </div>
+
+      <div class="policy-div"></div>
+
+    </div>
+
+  </div>
+</div>
