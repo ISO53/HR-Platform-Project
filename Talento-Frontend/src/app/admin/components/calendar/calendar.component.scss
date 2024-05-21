@@ -183,3 +183,19 @@ h2 {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+.calendar-card {
+    position: absolute;
+    left: 20%;
+    top: 12%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+.calendar {
+
+  }
