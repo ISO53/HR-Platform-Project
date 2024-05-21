@@ -47,9 +47,9 @@
         <div class="row text-center">
             <div class="col-md-4">
                 <div class="btn-group">
-                    <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">Previous</div>
-                    <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">Today</div>
-                    <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">Next</div>
+                    <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()"><strong><</strong></div>
+                    <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">Bugün</div>
+                    <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()"><strong>></strong></div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -57,9 +57,9 @@
             </div>
             <div class="col-md-4">
                 <div class="btn-group">
-                    <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">Month</div>
-                    <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">Week</div>
-                    <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">Day</div>
+                    <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">Ay</div>
+                    <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">Hafta</div>
+                    <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">Gün</div>
                 </div>
             </div>
         </div>
@@ -71,20 +71,20 @@
         <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
         <br />
         <h3>
-            Edit events
-            <button class="btn btn-primary float-end" (click)="addEvent()">Add new</button>
+            Takvimi Düzenle
+            <button class="btn btn-primary float-end" (click)="addEvent()">Yeni Etkinlik</button>
             <div class="clearfix"></div>
         </h3>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Primary color</th>
-                        <th>Secondary + text color</th>
-                        <th>Starts at</th>
-                        <th>Ends at</th>
-                        <th>Remove</th>
+                        <th>Başlık</th>
+                        <th>İlk renk</th>
+                        <th>İkinci renk | Yazı rengi</th>
+                        <th>Başlangıç</th>
+                        <th>Bitiş</th>
+                        <th>Kaldır</th>
                     </tr>
                 </thead>
 
@@ -107,7 +107,7 @@
                             <input class="form-control" type="text" mwlFlatpickr [(ngModel)]="event.end" (ngModelChange)="refresh.next()" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" crossorigin="anonymous" />
                         </td>
                         <td>
-                            <button class="btn btn-danger" (click)="deleteEvent(event)">Delete</button>
+                            <button class="btn btn-danger" (click)="deleteEvent(event)">Temizle</button>
                         </td>
                     </tr>
                 </tbody>
