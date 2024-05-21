@@ -1,58 +1,49 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-  }
-  
-  .container {
-    display: flex;
-    width: 20%;
-    max-width: 1000px;
-  }
-  
-  .sidebar {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 15%;
-    position: fixed; /* Fix sidebar to the left */
-    top: 12%;
-    left: 0;
-    height: 100vh;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .sidebar li:last-child {
-    border-bottom: none;
-  }
-  
-  .sidebar a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sidebar a:hover {
-    background-color: #eee;
-  }
-  
-  main {
-    flex: 1;
-    padding: 20px;
-  }
+  font-family: Arial, sans-serif;
+  padding-left: 18%;
+  padding-top: 32px;
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: flex;
+  width: 20%;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 15%;
+  position: fixed; /* Fix sidebar to the left */
+  top: 12%;
+  left: 0;
+  height: 100vh;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #eee;
+}
