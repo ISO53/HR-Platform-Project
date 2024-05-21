@@ -2,8 +2,10 @@ package iso53.talento.controller;
 
 import iso53.talento.model.Advert;
 import iso53.talento.model.Company;
+import iso53.talento.model.User;
 import iso53.talento.service.AdvertService;
 import iso53.talento.service.CompanyService;
+import iso53.talento.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,9 +26,52 @@ public class AdvertController {
     @Autowired
     private CompanyService companyService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/getAll")
     public ResponseEntity<List<Advert>> getAllAdverts() {
         return ResponseEntity.ok().body(advertService.findAll());
+    }
+
+    @GetMapping("/getAll/{id}")
+    public ResponseEntity<List<AdvertResponse>> getAdvertsByUserId(@PathVariable("id") String userId) {
+        User user = userService.findById(new ObjectId(userId));
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<Company> companies = companyService.findAll();
+        Company userCompany = null;
+        for (Company company : companies) {
+            if (company.getUserIDs().contains(user.getUserId())) {
+                userCompany = company;
+                break;
+            }
+        }
+
+        if (userCompany == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<Advert> adverts = advertService.findAll();
+        List<AdvertResponse> advertResponses = new ArrayList<>();
+        for (Advert advert : adverts) {
+            if (advert.getCompanyId().equals(userCompany.getCompanyID())) {
+                advertResponses.add(new AdvertResponse(
+                        advert.getAdvertId().toHexString(),
+                        companyService.findById(advert.getCompanyId()).getImageUrl(),
+                        companyService.findById(advert.getCompanyId()).getCompanyName(),
+                        advert.getPosition(),
+                        advert.getHeader(),
+                        advert.getInformation(),
+                        advert.getSkills(),
+                        advert.getUploadDate()
+                ));
+            }
+        }
+
+        return ResponseEntity.ok().body(advertResponses);
     }
 
     @GetMapping("/getAllDetailed")
