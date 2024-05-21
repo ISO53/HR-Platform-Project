@@ -9,4 +9,5 @@
         <li *ngFor="let skill of job.skills">{{ skill }}</li>
     </ul>
     <p class="job-details__date">Posted on: {{ job.uploadDate | date }}</p>
+    <button (click)="getApplication()">Apply</button>
 </div>
