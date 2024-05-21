@@ -36,6 +36,8 @@ const routes: Routes = [
   .then(module => module.SignUpModule)},
   { path: 'job/:id', loadChildren: () => import("./ui/components/job-details/job-details.module")
   .then(module => module.JobDetailsModule) },
+  { path: 'job-application/:id', loadChildren: () => import("./ui/components/job-application/job-application.module")
+  .then(module => module.JobApplicationModule) },
 ];
 
 @NgModule({

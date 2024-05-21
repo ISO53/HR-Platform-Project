@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class JobDetailsComponent implements OnInit {
   job: any;
-
+  
   constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
