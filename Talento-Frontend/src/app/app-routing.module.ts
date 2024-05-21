@@ -34,7 +34,8 @@ const routes: Routes = [
   .then(module => module.UsersModule)},
   {path:"sign-up", loadChildren: () => import("./ui/components/sign-up/sign-up.module")
   .then(module => module.SignUpModule)},
-  { path: 'job/:id', component: JobDetailsComponent },
+  { path: 'job/:id', loadChildren: () => import("./ui/components/job-details/job-details.module")
+  .then(module => module.JobDetailsModule) },
 ];
 
 @NgModule({
