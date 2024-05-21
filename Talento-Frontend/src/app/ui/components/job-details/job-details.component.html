@@ -1,1 +1,12 @@
-<p>job-details works!</p>
+<div class="job-details">
+  <img class="job-details__image" [src]="job.imageUrl" alt="Company Logo">
+  <h1 class="job-details__company">{{ job.companyName }}</h1>
+  <h2 class="job-details__position">{{ job.position }}</h2>
+  <h3 class="job-details__header">{{ job.header }}</h3>
+  <p class="job-details__information">{{ job.information }}</p>
+  <h4>Skills</h4>
+  <ul class="job-details__skills">
+    <li *ngFor="let skill of job.skills">{{ skill }}</li>
+  </ul>
+  <p class="job-details__date">Posted on: {{ job.uploadDate | date }}</p>
+</div>

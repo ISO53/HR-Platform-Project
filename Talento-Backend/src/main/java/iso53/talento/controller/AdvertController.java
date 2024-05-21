@@ -59,6 +59,22 @@ public class AdvertController {
                 new ResponseEntity<>(advert, HttpStatus.FOUND);
     }
 
+    @GetMapping("/getDetailed/{id}")
+    public ResponseEntity<AdvertResponse> getAdvertDetailedById(@PathVariable("id") String id) {
+        Advert advert = advertService.findById(new ObjectId(id));
+
+        return new ResponseEntity<>(new AdvertResponse(
+                advert.getAdvertId().toHexString(),
+                companyService.findById(advert.getCompanyId()).getImageUrl(),
+                companyService.findById(advert.getCompanyId()).getCompanyName(),
+                advert.getPosition(),
+                advert.getHeader(),
+                advert.getInformation(),
+                advert.getSkills(),
+                advert.getUploadDate()
+        ), HttpStatus.OK);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> createAdvert(@RequestBody AdvertDTO advertDTO) {
         try {
@@ -86,7 +102,8 @@ public class AdvertController {
     public record AdvertDTO(String companyId, List<String> skills, String position, String header, String information) {
     }
 
-    public record AdvertResponse(String id, String imageUrl, String companyName, String position, String header, String information,
+    public record AdvertResponse(String id, String imageUrl, String companyName, String position, String header,
+                                 String information,
                                  List<String> skills, Date uploadDate) {
     }
 
