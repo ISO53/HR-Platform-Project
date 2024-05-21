@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +27,27 @@ public class AdvertController {
     @GetMapping("/getAll")
     public ResponseEntity<List<Advert>> getAllAdverts() {
         return ResponseEntity.ok().body(advertService.findAll());
+    }
+
+    @GetMapping("/getAllDetailed")
+    public ResponseEntity<List<AdvertResponse>> getAllAdvertsDetailed() {
+        List<Advert> advert = advertService.findAll();
+        List<AdvertResponse> advertResponses = new ArrayList<>();
+
+        for (Advert adv : advert) {
+            advertResponses.add(new AdvertResponse(
+                    adv.getAdvertId().toHexString(),
+                    companyService.findById(adv.getCompanyId()).getImageUrl(),
+                    companyService.findById(adv.getCompanyId()).getCompanyName(),
+                    adv.getPosition(),
+                    adv.getHeader(),
+                    adv.getInformation(),
+                    adv.getSkills(),
+                    adv.getUploadDate()
+            ));
+        }
+
+        return ResponseEntity.ok().body(advertResponses);
     }
 
     @GetMapping("/get/{id}")
@@ -63,4 +85,9 @@ public class AdvertController {
 
     public record AdvertDTO(String companyId, List<String> skills, String position, String header, String information) {
     }
+
+    public record AdvertResponse(String id, String imageUrl, String companyName, String position, String header, String information,
+                                 List<String> skills, Date uploadDate) {
+    }
+
 }
