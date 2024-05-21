@@ -6,6 +6,13 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+
+    
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    animation: fadeIn 1s ease-in-out;
   
     h1 {
       margin-bottom: 20px;
