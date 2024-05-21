@@ -1,7 +1,10 @@
 body {
   font-family: Arial, sans-serif;
-  padding-left: 18%;
-  padding-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   background-color: #f4f4f4;
 }
 
