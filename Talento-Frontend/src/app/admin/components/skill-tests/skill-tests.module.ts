@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { SkillTestsComponent } from './skill-tests.component';
 import { RouterModule } from '@angular/router';
 import { SkilltestCardComponent } from './skilltest-card/skilltest-card.component';
+import { CreateComponent } from './create/create.component';
 
 
 
 @NgModule({
-  declarations: [SkillTestsComponent, SkilltestCardComponent],
+  declarations: [SkillTestsComponent, SkilltestCardComponent, CreateComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path:"",component:SkillTestsComponent}
+      {path:"",component:SkillTestsComponent},
+      {path:"create",component:CreateComponent}
     ]),
   ]
 })
