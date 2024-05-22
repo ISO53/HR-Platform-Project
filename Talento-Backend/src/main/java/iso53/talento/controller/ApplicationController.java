@@ -68,7 +68,7 @@ public class ApplicationController {
         return new ResponseEntity<>(applicationService.save(application), HttpStatus.OK);
     }
 
-    public record ApplicationDTO(ObjectId applicationID, ObjectId advertID, ObjectId userID, String name,
+    public record ApplicationDTO(ObjectId advertID, ObjectId userID, String name,
                                  String surname, String email, String address, String undergraduateEducation,
                                  String mastersDegreeOrDoctorate, String dateOfGraduation,
                                  List<String> businessExperience, String githubUrl, List<String> skills,
