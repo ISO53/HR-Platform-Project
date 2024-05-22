@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup,  } from '@angular/forms';
 
 
 
@@ -8,9 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class CreateComponent {
+export class CreateComponent{
   mcqForm: FormGroup;
   cards: any[] = [];
+  question: string;
+  option1: string;
+  option2: string;
+  option3: string;
+  option4: string;
+  correct: any;
   /*
   cards : any = [{
     question:"",
@@ -20,30 +26,27 @@ export class CreateComponent {
     answer4: "",
     correct: "dogru"
    }]*/
-  constructor(private fb: FormBuilder) {
-    this.mcqForm = this.fb.group({
-      question: ['', Validators.required],
-      option1: ['', Validators.required],
-      option2: ['', Validators.required],
-      option3: ['', Validators.required],
-      option4: ['', Validators.required],
-      correct: ['', Validators.required]
-    });
+  constructor() {
+
     
   }
 
-  onSubmit(): void {
-    if (this.mcqForm.valid) {
-      this.cards.push(this.mcqForm.value);
+  run(): void {
+      const data= {
+        question:this.question,
+        answer1: this.option1,
+        answer2: this.option2,
+        answer3: this.option3,
+        answer4: this.option4,
+        correct: this.correct
+       }
+       console.log(data);
+       
+       console.log(this.question);
+       
+      this.cards.push(data);
       // Create a new FormGroup for the next question
-      this.mcqForm = this.fb.group({
-        question: ['', Validators.required],
-        option1: ['', Validators.required],
-        option2: ['', Validators.required],
-        option3: ['', Validators.required],
-        option4: ['', Validators.required],
-        correct: ['', Validators.required]
-      });
-    }
+      
+    
   }
 }
