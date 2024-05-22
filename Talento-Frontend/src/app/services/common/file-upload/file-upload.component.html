@@ -2,14 +2,14 @@
     <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="selectedFiles($event)" [accept]="options.accept">
         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
             <div class="file-manager">{{ options.explanation }}</div>
-            <div class="file-manager"><button type="button" (click)="openFileSelector()">Browse Files</button></div>
+            <div class="file-manager"><button class="btn btn-outline-success" type="button" (click)="openFileSelector()">Dosya yükle</button></div>
         </ng-template>
     </ngx-file-drop>
     <div class="upload-table" *ngIf="files">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Selected Files</th>
+                    <th>Seçilen Dosyalar</th>
                 </tr>
             </thead>
             <tbody class="upload-name-style">
