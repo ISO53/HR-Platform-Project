@@ -46,7 +46,8 @@ public class ApplicationController {
                     application.getName() + " " + application.getSurname(),
                     advertService.findById(application.getAdvertID()).getPosition(),
                     "İnceleniyor",
-                    advertService.findById(application.getAdvertID()).getInformation()
+                    advertService.findById(application.getAdvertID()).getInformation(),
+                    application.getCvScore()
             ));
         }
 
@@ -104,10 +105,10 @@ public class ApplicationController {
                                  String surname, String email, String address, String undergraduateEducation,
                                  String mastersDegreeOrDoctorate, String dateOfGraduation,
                                  List<String> businessExperience, String githubUrl, List<String> skills,
-                                 List<String> certificates, List<String> languages, double cvScore) {
+                                 List<String> certificates, List<String> languages, int cvScore) {
     }
 
     public record ApplicationSimpleResponse(String imageUrl, String applicantNameSurname, String position,
-                                            String status, String description) {
+                                            String status, String description, int cvScore) {
     }
 }
