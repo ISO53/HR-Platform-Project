@@ -1,10 +1,8 @@
 <body>
-<div class="hr-job-listings-container">
-  <h2>İş İlanları Yönetimi</h2>
-  <button class="add-job-btn">Yeni İlan Ekle</button>
+    <div class="hr-job-listings-container">
+        <h2>İş İlanları Yönetimi</h2>
+        <button class="add-job-btn" routerLink="create">Yeni İlan Ekle</button>
 
-  <app-jobposting-card *ngFor="let advert of adverts"
-                       [advert]="advert"></app-jobposting-card>
-
-</div>
+        <app-jobposting-card *ngFor="let advert of adverts" [advert]="advert"></app-jobposting-card>
+    </div>
 </body>

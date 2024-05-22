@@ -4,7 +4,7 @@ import { SkillTestsComponent } from './skill-tests.component';
 import { RouterModule } from '@angular/router';
 import { SkilltestCardComponent } from './skilltest-card/skilltest-card.component';
 import { CreateComponent } from './create/create.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       {path:"",component:SkillTestsComponent},
       {path:"create",component:CreateComponent}
     ]),
+    FormsModule
   ]
 })
 export class SkillTestsModule { }
