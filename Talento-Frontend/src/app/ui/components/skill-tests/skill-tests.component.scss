@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+.hr-tests-container {
+    position: absolute;
+    left: 20%;
+    top: 12%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.create-test-btn {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-test-btn:hover {
+    background-color: #45A049;
+}
+
+.test-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.test-card:hover {
+    transform: translateY(-5px);
+}
+
+.test-details {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.test-details h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.test-details .test-description {
+    color: #555;
+}
+
+.test-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-test-btn, .delete-test-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-test-btn {
+    background-color: #0ab95c;
+    color: white;
+}
+
+.edit-test-btn:hover {
+    background-color: #e69500;
+}
+
+.delete-test-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-test-btn:hover {
+    background-color: #d32f2f;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
