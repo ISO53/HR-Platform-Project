@@ -80,7 +80,8 @@ public class ApplicationController {
                     applicationDTO.skills(),
                     applicationDTO.certificates(),
                     applicationDTO.languages(),
-                    ""
+                    "",
+                    applicationDTO.cvScore()
             ));
 
             return new ResponseEntity<>(application, HttpStatus.CREATED);
@@ -103,7 +104,7 @@ public class ApplicationController {
                                  String surname, String email, String address, String undergraduateEducation,
                                  String mastersDegreeOrDoctorate, String dateOfGraduation,
                                  List<String> businessExperience, String githubUrl, List<String> skills,
-                                 List<String> certificates, List<String> languages) {
+                                 List<String> certificates, List<String> languages, double cvScore) {
     }
 
     public record ApplicationSimpleResponse(String imageUrl, String applicantNameSurname, String position,
