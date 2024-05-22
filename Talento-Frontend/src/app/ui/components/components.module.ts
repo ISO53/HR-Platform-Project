@@ -5,6 +5,10 @@ import { UsersModule } from './users/users.module';
 import { JobPostingModule } from './job-posting/job-posting.module';
 import { LogInModule } from './log-in/log-in.module';
 import { PricesModule } from './prices/prices.module';
+import { SignUpModule } from './sign-up/sign-up.module';
+import { JobApplicationModule } from './job-application/job-application.module';
+import { JobDetailsModule } from './job-details/job-details.module';
+import { SkillTestsModule } from './skill-tests/skill-tests.module';
 
 
 
@@ -20,7 +24,11 @@ import { PricesModule } from './prices/prices.module';
     UsersModule,
     JobPostingModule,
     LogInModule,
-    PricesModule
+    PricesModule,
+    SignUpModule,
+    JobApplicationModule,
+    JobDetailsModule,
+    SkillTestsModule
   ]
 })
 export class ComponentsModule { }

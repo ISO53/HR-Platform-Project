@@ -38,6 +38,8 @@ const routes: Routes = [
   .then(module => module.JobDetailsModule) },
   { path: 'job-application/:id', loadChildren: () => import("./ui/components/job-application/job-application.module")
   .then(module => module.JobApplicationModule) },
+  { path: 'skill-tests', loadChildren: () => import("./ui/components/skill-tests/skill-tests.module")
+  .then(module => module.SkillTestsModule) },
 ];
 
 @NgModule({
