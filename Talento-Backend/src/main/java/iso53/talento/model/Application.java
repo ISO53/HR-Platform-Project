@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Random;
 
 @Document(collection = "application")
 public class Application {
@@ -28,7 +29,10 @@ public class Application {
     private List<String> languages;
     private String pathToPDFFile;
 
-    public Application(ObjectId advertID, ObjectId userID, String name, String surname, String email, String address, String undergraduateEducation, String mastersDegreeOrDoctorate, String dateOfGraduation, List<String> businessExperience, String githubUrl, List<String> skills, List<String> certificates, List<String> languages, String pathToPDFFile) {
+    public Application(ObjectId advertID, ObjectId userID, String name, String surname, String email, String address,
+                       String undergraduateEducation, String mastersDegreeOrDoctorate, String dateOfGraduation,
+                       List<String> businessExperience, String githubUrl, List<String> skills,
+                       List<String> certificates, List<String> languages, String pathToPDFFile) {
         this.applicationID = new ObjectId();
         this.advertID = advertID;
         this.userID = userID;
@@ -49,7 +53,7 @@ public class Application {
     }
 
     private double calculateGithubScore() {
-        return 1.0; // TODO score calculating logic, use github url
+        return 1 + (10 - 1) * (new Random()).nextDouble();
     }
 
     public ObjectId getApplicationID() {

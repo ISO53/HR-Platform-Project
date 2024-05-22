@@ -1,13 +1,20 @@
 package iso53.talento.controller;
 
+import iso53.talento.model.Advert;
 import iso53.talento.model.Application;
+import iso53.talento.model.Company;
+import iso53.talento.model.User;
+import iso53.talento.service.AdvertService;
 import iso53.talento.service.ApplicationService;
+import iso53.talento.service.CompanyService;
+import iso53.talento.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,9 +24,33 @@ public class ApplicationController {
     @Autowired
     private ApplicationService applicationService;
 
+    @Autowired
+    private CompanyService companyService;
+
+    @Autowired
+    private AdvertService advertService;
+
     @GetMapping("/getAll")
     public ResponseEntity<List<Application>> getAllApplications() {
         return ResponseEntity.ok().body(applicationService.findAll());
+    }
+
+    @GetMapping("/getAllSimple")
+    public ResponseEntity<List<ApplicationSimpleResponse>> getAllApplicationsSimple() {
+        List<Application> applications = applicationService.findAll();
+        List<ApplicationSimpleResponse> applicationSimpleResponses = new ArrayList<>();
+
+        for (Application application : applications) {
+            applicationSimpleResponses.add(new ApplicationSimpleResponse(
+                    companyService.findById(advertService.findById(application.getAdvertID()).getCompanyId()).getImageUrl(),
+                    application.getName() + " " + application.getSurname(),
+                    advertService.findById(application.getAdvertID()).getPosition(),
+                    "İnceleniyor",
+                    advertService.findById(application.getAdvertID()).getInformation()
+            ));
+        }
+
+        return ResponseEntity.ok().body(applicationSimpleResponses);
     }
 
     @GetMapping("/get/{id}")
@@ -73,5 +104,9 @@ public class ApplicationController {
                                  String mastersDegreeOrDoctorate, String dateOfGraduation,
                                  List<String> businessExperience, String githubUrl, List<String> skills,
                                  List<String> certificates, List<String> languages) {
+    }
+
+    public record ApplicationSimpleResponse(String imageUrl, String applicantNameSurname, String position,
+                                            String status, String description) {
     }
 }
