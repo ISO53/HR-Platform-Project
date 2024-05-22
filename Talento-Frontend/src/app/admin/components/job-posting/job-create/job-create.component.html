@@ -2,8 +2,60 @@
     <div class="post-container">
         <div class="hr-job-listings-container">
             <h2>İş İlanları Yönetimi</h2>
-            <button class="add-job-btn" routerLink="create">Yeni İlan Ekle</button>
+            <div class="form-group">
+                <div class="row mb-3">
+                    <div class="column">
+                        <label>Başlık</label>
+                        <input class="form-control p-2" type="search" placeholder="Başlık" aria-label="Name" />
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="column">
+                        <label>Pozisyon</label>
+                        <input class="form-control p-2" type="search" placeholder="Pozisyon" aria-label="Name" />
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="column">
+                        <label>Açıklama</label>
+                        <input class="form-control p-2" type="search" placeholder="Açıklama" aria-label="Name" />
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <mat-label>Yetenekler</mat-label>
+                        <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(0, $event)" />
+                        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+                            <mat-chip-row [(ngModel)]="skills" *ngFor="let skill of skills" (removed)="remove(0, skill)" [editable]="true" (edited)="edit(0, skill, $event)" [aria-description]="'press enter to edit ' + skill['name']">
+                                {{ skill["name"] }}
+                                <button matChipRemove [attr.aria-label]="'remove ' + skill.name">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                        </mat-chip-grid>
+                    </div>
+                </div>
+            </div>
+            <button class="add-job-btn" routerLink="/admin/job-posting">Yeni İlan Ekle</button>
         </div>
-        <div class="integration-card" style="background-color: red"></div>
+        <div class="integration-card">
+            <button class="button">
+                Bağlantı Kur
+                <img class="linkedin" src="../../../../../assets/brands/linkedin.png" alt="" />
+            </button>
+            <br />
+            <button class="button-indeed">
+                Bağlantı Kur
+                <img class="linkedin" src="../../../../../assets/brands/indeed.png" alt="" />
+            </button>
+            <br />
+            <button class="button-youthall">
+                Bağlantı Kur
+                <img class="linkedin" src="../../../../../assets/brands/youthall.jpg" alt="" />
+            </button>
+        </div>
     </div>
 </body>
