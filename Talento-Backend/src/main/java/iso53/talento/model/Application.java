@@ -28,11 +28,12 @@ public class Application {
     private List<String> certificates;
     private List<String> languages;
     private String pathToPDFFile;
+    private double cvScore;
 
     public Application(ObjectId advertID, ObjectId userID, String name, String surname, String email, String address,
                        String undergraduateEducation, String mastersDegreeOrDoctorate, String dateOfGraduation,
                        List<String> businessExperience, String githubUrl, List<String> skills,
-                       List<String> certificates, List<String> languages, String pathToPDFFile) {
+                       List<String> certificates, List<String> languages, String pathToPDFFile, double cvScore) {
         this.applicationID = new ObjectId();
         this.advertID = advertID;
         this.userID = userID;
@@ -50,6 +51,7 @@ public class Application {
         this.certificates = certificates;
         this.languages = languages;
         this.pathToPDFFile = pathToPDFFile;
+        this.cvScore = cvScore;
     }
 
     private double calculateGithubScore() {
