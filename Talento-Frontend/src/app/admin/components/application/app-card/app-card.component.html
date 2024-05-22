@@ -1,10 +1,10 @@
 <div class="application-card">
-    <img src="./assets/applicants/john_doe.png" alt="John Doe" class="applicant-photo" />
+    <img src="{{application.imageUrl}}" alt="photo" class="applicant-photo" />
     <div class="application-details">
-        <h3>John Doe</h3>
-        <p class="application-position">Software Engineer</p>
-        <p class="application-status">Durum: İnceleniyor</p>
-        <p class="application-description">John Doe, Amazon'da yazılım mühendisi pozisyonuna başvurdu. Deneyimli bir yazılım geliştiricisi olup, JavaScript, React ve Node.js teknolojilerine hakimdir.</p>
+        <h3>{{application.applicantNameSurname}}</h3>
+        <p class="application-position">{{application.position}}</p>
+        <p class="application-status">{{application.status}}</p>
+        <p class="application-description">{{application.description}}</p>
     </div>
     <div class="application-actions">
         <button class="view-application-btn">Görüntüle</button>
