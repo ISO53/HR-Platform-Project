@@ -1,9 +1,8 @@
-<p>file-upload works!</p>
 <div class="center">
     <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="selectedFiles($event)" [accept]="options.accept">
         <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-            {{ options.explanation }}
-            <button type="button" (click)="openFileSelector()">Browse Files</button>
+            <div class="file-manager">{{ options.explanation }}</div>
+            <div class="file-manager"><button type="button" (click)="openFileSelector()">Browse Files</button></div>
         </ng-template>
     </ngx-file-drop>
     <div class="upload-table" *ngIf="files">
