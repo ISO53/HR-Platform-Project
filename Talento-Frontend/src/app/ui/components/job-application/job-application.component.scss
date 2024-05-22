@@ -1,6 +1,20 @@
+.name-surname{
+  display: flex;
+}
+
+.job-container{
+  display: flex;
+
+}
+.job-form {
+  width: 80%;
+  margin: 25px ;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 .job-details {
-    width: 80%;
-    margin: 25px auto;
+    width: 20%;
+    margin: 25px ;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }

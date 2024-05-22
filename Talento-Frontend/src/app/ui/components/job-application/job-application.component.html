@@ -1,12 +1,117 @@
-<div class="job-details">
-    <img class="job-details__image" [src]="job.imageUrl" alt="Company Logo" />
-    <h1 class="job-details__company">{{ job.companyName }}</h1>
-    <h2 class="job-details__position">{{ job.position }}</h2>
-    <h3 class="job-details__header">{{ job.header }}</h3>
-    <p class="job-details__information">{{ job.information }}</p>
-    <h4>Skills</h4>
-    <ul class="job-details__skills">
-        <li *ngFor="let skill of job.skills">{{ skill }}</li>
-    </ul>
-    <p class="job-details__date">Posted on: {{ job.uploadDate | date }}</p>
+<div class="job-container">
+    <div class="job-details">
+        <img class="job-details__image" [src]="job.imageUrl" alt="Company Logo" />
+        <h1 class="job-details__company">{{ job.companyName }}</h1>
+        <h2 class="job-details__position">{{ job.position }}</h2>
+        <h3 class="job-details__header">{{ job.header }}</h3>
+        <p class="job-details__information">{{ job.information }}</p>
+        <h4>Skills</h4>
+        <ul class="job-details__skills">
+            <li *ngFor="let skill of job.skills">{{ skill }}</li>
+        </ul>
+        <p class="job-details__date">Posted on: {{ job.uploadDate | date }}</p>
+    </div>
+    <div class="job-form">
+        <div class="job-inputs">
+            <div class="form-group">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label>Ad</label>
+                        <input class="form-control" type="search" placeholder="Name" aria-label="Name" />
+                        <small class="form-text text-muted"></small>
+                    </div>
+                    <div class="col">
+                        <label>Soyad</label>
+                        <input class="form-control" type="search" placeholder="Surname" aria-label="Name" />
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input class="form-control" type="email" placeholder="example@gmail.com" aria-label="Name" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="">Adres</label>
+                        <input class="form-control" type="text" placeholder="Adres" aria-label="Name" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="">Lisans Eğitimi</label>
+                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" />
+                    </div>
+                    <div class="col">
+                        <label for="">Mezun yılı</label>
+                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="">Yüksek Lisans Eğitimi</label>
+                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" />
+                    </div>
+                    <div class="col">
+                        <label for="">Mezun yılı</label>
+                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="">GitHub link</label>
+                        <input class="form-control" type="text" placeholder="URL giriniz" aria-label="Name" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <mat-label>Yetenekler</mat-label>
+                        <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(0, $event)" />
+                        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+                            <mat-chip-row *ngFor="let skill of skills" (removed)="remove(0, skill)" [editable]="true" (edited)="edit(0, skill, $event)" [aria-description]="'press enter to edit ' + skill['name']">
+                                {{ skill["name"] }}
+                                <button matChipRemove [attr.aria-label]="'remove ' + skill.name">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                        </mat-chip-grid>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <mat-label>Sertifikalar</mat-label>
+                        <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(1, $event)" />
+                        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+                            <mat-chip-row *ngFor="let certificate of certificates" (removed)="remove(1, certificate)" [editable]="true" (edited)="edit(1, certificate, $event)" [aria-description]="'press enter to edit ' + certificate['name']">
+                                {{ certificate["name"] }}
+                                <button matChipRemove [attr.aria-label]="'remove ' + certificate.name">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                        </mat-chip-grid>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <mat-label>Diller</mat-label>
+                        <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(2, $event)" />
+                        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+                            <mat-chip-row *ngFor="let certificate of certificates" (removed)="remove(2, certificate)" [editable]="true" (edited)="edit(2, certificate, $event)" [aria-description]="'press enter to edit ' + certificate['name']">
+                                {{ certificate["name"] }}
+                                <button matChipRemove [attr.aria-label]="'remove ' + certificate.name">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                        </mat-chip-grid>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 me-1 ms-1">
+                <button class="btn btn-outline-success" type="submit">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <app-file-upload [options]="fileUploadOptions"></app-file-upload>
 </div>
