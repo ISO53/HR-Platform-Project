@@ -2,60 +2,89 @@
     <div class="hr-tests-container">
         <h2>Yetenek Testi Oluştur</h2>
         <div class="cards">
+            <div class="card yellow">
+                <div class="form-group">
+                    <label for="question" class="form-label">Soru Yazınız</label>
+                    <input type="text" id="question" [(ngModel)]="question" class="form-input" placeholder="Soru" />
+                </div>
 
-            <div *ngFor="let card of cards" class="card blue">
+                <div class="form-group options-group">
+                    <div class="option-pair">
+                        <div class="form-group">
+                            <label for="option1" class="form-label">Seçenek 1</label>
+                            <input type="text" id="option1" [(ngModel)]="option1" class="form-input" placeholder="Seçenek 1" />
+                        </div>
+                        <div class="form-group">
+                            <label for="option2" class="form-label">Seçenek 2</label>
+                            <input type="text" id="option2" [(ngModel)]="option2" class="form-input" placeholder="Seçenek 2" />
+                        </div>
+                    </div>
+                    <div class="option-pair">
+                        <div class="form-group">
+                            <label for="option3" class="form-label">Seçenek 3</label>
+                            <input type="text" id="option3" [(ngModel)]="option3" class="form-input" placeholder="Seçenek 3" />
+                        </div>
+                        <div class="form-group">
+                            <label for="option4" class="form-label">Seçenek 4</label>
+                            <input type="text" id="option4" [(ngModel)]="option4" class="form-input" placeholder="Seçenek 4" />
+                        </div>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label for="correct" class="form-label">Doğru Seçenek</label>
+                    <select id="correct" [(ngModel)]="correct" class="form-select">
+                        <option value="option1">Seçenek 1</option>
+                        <option value="option2">Seçenek 2</option>
+                        <option value="option3">Seçenek 3</option>
+                        <option value="option4">Seçenek 4</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="form-button" (click)="run()">Soruyu Kaydet</button>
             </div>
-            <div class="card blue">
-                <form (ngSubmit)="onSubmit()">
+            <div *ngFor="let card of cards" class="card blue">
+                <div class="card blue">
                     <div class="form-group">
                         <label for="question" class="form-label">Soru Yazınız</label>
-                        <input type="text" id="question" formControlName="question" class="form-input"
-                            placeholder="Soru" required>
+                        <input type="text" id="question" formControlName="question" class="form-input" placeholder="Soru" value="{{ card.question }}" required />
                     </div>
 
                     <div class="form-group options-group">
                         <div class="option-pair">
                             <div class="form-group">
                                 <label for="option1" class="form-label">Seçenek 1</label>
-                                <input type="text" id="option1" formControlName="option1" class="form-input"
-                                    placeholder="Seçenek 1" required>
+                                <input type="text" id="option1" formControlName="option1" class="form-input" placeholder="Seçenek 1" value="{{ card.answer1 }}" required />
                             </div>
                             <div class="form-group">
                                 <label for="option2" class="form-label">Seçenek 2</label>
-                                <input type="text" id="option2" formControlName="option2" class="form-input"
-                                    placeholder="Seçenek 2" required>
+                                <input type="text" id="option2" formControlName="option2" class="form-input" placeholder="Seçenek 2" value="{{ card.answer2 }}" required />
                             </div>
                         </div>
                         <div class="option-pair">
                             <div class="form-group">
                                 <label for="option3" class="form-label">Seçenek 3</label>
-                                <input type="text" id="option3" formControlName="option3" class="form-input"
-                                    placeholder="Seçenek 3" required>
+                                <input type="text" id="option3" formControlName="option3" class="form-input" placeholder="Seçenek 3" value="{{ card.answer3 }}" required />
                             </div>
                             <div class="form-group">
                                 <label for="option4" class="form-label">Seçenek 4</label>
-                                <input type="text" id="option4" formControlName="option4" class="form-input"
-                                    placeholder="Seçenek 4" required>
+                                <input type="text" id="option4" formControlName="option4" class="form-input" placeholder="Seçenek 4" value="{{ card.answer4 }}" required />
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="correct" class="form-label">Doğru Seçenek</label>
-                        <select id="correct" formControlName="correct" class="form-select" required>
+                        <select id="correct" formControlName="correct" class="form-select" value="{{ card.correct }}" required>
                             <option value="option1">Seçenek 1</option>
                             <option value="option2">Seçenek 2</option>
                             <option value="option3">Seçenek 3</option>
                             <option value="option4">Seçenek 4</option>
                         </select>
                     </div>
-                    <button type="submit" class="form-button">Soruyu Kaydet</button>
-                </form>
+                    <button type="submit" class="form-button" (click)="run()">Soruyu Kaydet</button>
+                </div>
             </div>
-
-            
         </div>
     </div>
-
 </body>
