@@ -1,0 +1,138 @@
+
+.container {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container:nth-child(odd) {
+  background: radial-gradient(ellipse at center, rgba(255, 100, 0, 0.4) 0%, transparent 60%);
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff4081, #e00070);
+  padding: 1em 2em;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #e00070, #ff4081);
+  box-shadow: 0 0 25px rgba(255, 64, 129, 0.7);
+}
+
+/* Additional section styling */
+.features {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.feature-item {
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(255, 100, 0, 0.4);
+  border-radius: 20px;
+  margin: 20px;
+  user-select: none;
+  transition: box-shadow 150ms ease, transform 150ms ease;
+}
+
+.feature-item h2 {
+  font-size: 1.5rem;
+}
+
+.feature-item p {
+  font-size: 1.1rem;
+}
+
+.feature-item:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  transform: scale(101%);
+}
+
+.slider {
+  width: 80%;
+  max-width: 800px;
+  overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slider img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.slider-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slider-button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  margin: 20px;
+  padding: 20px 40px 20px 40px;
+  background-color: transparent;
+  color: rgb(189, 75, 0);
+  border: 2px solid rgb(255, 149, 84);
+  border-radius: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.button:hover {
+  transform: scale(110%);
+  background-color: rgb(255, 97, 0);
+  color: white;
+}
