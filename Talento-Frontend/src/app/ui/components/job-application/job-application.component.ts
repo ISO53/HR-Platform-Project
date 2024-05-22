@@ -20,9 +20,21 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 export class JobApplicationComponent {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  skills: any[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
-  certificates: any[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
-  languages: any[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
+  
+  skills: any[] = [{name: 'Örnek'}];
+  certificates: any[] = [];
+  languages: any[] = [];
+  name: string="";
+  surname:string="";
+  address:string="";
+  email:string="";
+  undergrade:string="";
+  mastergrade:string="";
+  graduateDateUnder:string ="";
+  graduateDateMaster:string="";
+  github:string="";
+  cvscore:string ="";
+  businessExperience:any ="";
 
   announcer = inject(LiveAnnouncer);
 
@@ -48,7 +60,9 @@ export class JobApplicationComponent {
 
   add(selectedSection ,event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-
+    console.log(this.name);
+    console.log(this.surname);
+    
     // Add our fruit
     if (value) {
       if(selectedSection ==0){
@@ -122,6 +136,37 @@ export class JobApplicationComponent {
       if (index >= 0) {
         this.languages[index].name = value;
       }
+    }
+  }
+  updateCV(event){
+    console.log("veri geldi")
+    console.log(event["content"]);
+    event = JSON.parse(event["content"])
+    this.name = event.name;
+    this.surname = event.surname;
+    this.email=event.email;
+    this.github=event.githubUrl;
+    this.address = event.address;
+    this.undergrade = event.undergraduateEducation;
+    this.mastergrade= event.mastersDegreeOrDoctorate;
+    this.graduateDateMaster = event.dateOfGraduation;
+    this.graduateDateUnder = event.dateOfGraduation;
+    this.cvscore = event.cv_score;
+    this.businessExperience = event.businessExperience;
+    console.log(event.name);
+    console.log(event["name"]);
+
+    this.skills =[]
+    this.languages = []
+    this.certificates = []
+    for(let element of event.skills){
+      this.skills.push({name:element});
+    }
+    for(let element of event.languages){
+      this.languages.push({name:element});
+    }
+    for(let element of event.certificates){
+      this.certificates.push({name:element});
     }
   }
 }

@@ -17,51 +17,51 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label>Ad</label>
-                        <input class="form-control" type="search" placeholder="Name" aria-label="Name" />
+                        <input class="form-control" type="search" placeholder="Name" aria-label="Name" [(ngModel)]="name" (ngModelChange)="name = $event" />
                         <small class="form-text text-muted"></small>
                     </div>
                     <div class="col">
                         <label>Soyad</label>
-                        <input class="form-control" type="search" placeholder="Surname" aria-label="Name" />
+                        <input class="form-control" type="search" placeholder="Surname" aria-label="Name" [(ngModel)]="surname" />
                         <small class="form-text text-muted"></small>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="exampleInputEmail1">Email</label>
-                        <input class="form-control" type="email" placeholder="example@gmail.com" aria-label="Name" />
+                        <input class="form-control" type="email" placeholder="example@gmail.com" aria-label="Name" [(ngModel)]="email" />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="">Adres</label>
-                        <input class="form-control" type="text" placeholder="Adres" aria-label="Name" />
+                        <input class="form-control" type="text" placeholder="Adres" aria-label="Name" [(ngModel)]="address" />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="">Lisans Eğitimi</label>
-                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" />
+                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" [(ngModel)]="undergrade" />
                     </div>
                     <div class="col">
                         <label for="">Mezun yılı</label>
-                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" />
+                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" [(ngModel)]="graduateDateUnder" />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="">Yüksek Lisans Eğitimi</label>
-                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" />
+                        <input class="form-control" type="text" placeholder="Üniversite adı giriniz" aria-label="Name" [(ngModel)]="mastergrade" />
                     </div>
                     <div class="col">
                         <label for="">Mezun yılı</label>
-                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" />
+                        <input class="form-control" type="date" placeholder="Mezuniyet yılı giriniz" aria-label="Name" [(ngModel)]="graduateDateMaster" />
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="">GitHub link</label>
-                        <input class="form-control" type="text" placeholder="URL giriniz" aria-label="Name" />
+                        <input class="form-control" type="text" placeholder="URL giriniz" aria-label="Name" [(ngModel)]="github" />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -69,7 +69,7 @@
                         <mat-label>Yetenekler</mat-label>
                         <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(0, $event)" />
                         <mat-chip-grid #chipGrid aria-label="Enter fruits">
-                            <mat-chip-row *ngFor="let skill of skills" (removed)="remove(0, skill)" [editable]="true" (edited)="edit(0, skill, $event)" [aria-description]="'press enter to edit ' + skill['name']">
+                            <mat-chip-row [(ngModel)]="skills" *ngFor="let skill of skills" (removed)="remove(0, skill)" [editable]="true" (edited)="edit(0, skill, $event)" [aria-description]="'press enter to edit ' + skill['name']">
                                 {{ skill["name"] }}
                                 <button matChipRemove [attr.aria-label]="'remove ' + skill.name">
                                     <mat-icon>cancel</mat-icon>
@@ -83,7 +83,7 @@
                         <mat-label>Sertifikalar</mat-label>
                         <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(1, $event)" />
                         <mat-chip-grid #chipGrid aria-label="Enter fruits">
-                            <mat-chip-row *ngFor="let certificate of certificates" (removed)="remove(1, certificate)" [editable]="true" (edited)="edit(1, certificate, $event)" [aria-description]="'press enter to edit ' + certificate['name']">
+                            <mat-chip-row [(ngModel)]="certificates" *ngFor="let certificate of certificates" (removed)="remove(1, certificate)" [editable]="true" (edited)="edit(1, certificate, $event)" [aria-description]="'press enter to edit ' + certificate['name']">
                                 {{ certificate["name"] }}
                                 <button matChipRemove [attr.aria-label]="'remove ' + certificate.name">
                                     <mat-icon>cancel</mat-icon>
@@ -97,9 +97,9 @@
                         <mat-label>Diller</mat-label>
                         <input class="form-control" placeholder="Yeni yetenek ekleyiniz" [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add(2, $event)" />
                         <mat-chip-grid #chipGrid aria-label="Enter fruits">
-                            <mat-chip-row *ngFor="let certificate of certificates" (removed)="remove(2, certificate)" [editable]="true" (edited)="edit(2, certificate, $event)" [aria-description]="'press enter to edit ' + certificate['name']">
-                                {{ certificate["name"] }}
-                                <button matChipRemove [attr.aria-label]="'remove ' + certificate.name">
+                            <mat-chip-row [(ngModel)]="languages" *ngFor="let language of languages" (removed)="remove(2, language)" [editable]="true" (edited)="edit(2, language, $event)" [aria-description]="'press enter to edit ' + language['name']">
+                                {{ language["name"] }}
+                                <button matChipRemove [attr.aria-label]="'remove ' + language.name">
                                     <mat-icon>cancel</mat-icon>
                                 </button>
                             </mat-chip-row>
@@ -113,5 +113,5 @@
         </div>
     </div>
 
-    <app-file-upload [options]="fileUploadOptions"></app-file-upload>
+    <app-file-upload (sendCV)="updateCV($event)" [options]="fileUploadOptions"></app-file-upload>
 </div>

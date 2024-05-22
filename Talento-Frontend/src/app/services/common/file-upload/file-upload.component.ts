@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
 import { first, switchMap } from 'rxjs';
 
@@ -17,8 +17,9 @@ export class FileUploadComponent {
 
   public files: NgxFileDropEntry[];
   @Input() options : Partial<FileUploadOptions>;
+  @Output() sendCV : EventEmitter<any> = new EventEmitter();
 
-  public async selectedFiles(files: NgxFileDropEntry[]) {
+  public selectedFiles(files: NgxFileDropEntry[]) {
     this.files = files;
     const fileData : FormData = new FormData();
     for(const file of files){
@@ -57,7 +58,7 @@ export class FileUploadComponent {
               languages
               cv_score
               
-              add cv_score field in the json and score the cv from 0 to 100. Return json as answer nothing more`
+              add cv_score field in the json and score the cv from 0 to 100. Return json as answer nothing more. skills, certificates and languages must be send as list such as ["SQL",".NET"]`
             }
           ]
         },{
@@ -72,6 +73,7 @@ export class FileUploadComponent {
         const message = "data is got successfully";
         console.log(message);
         console.log(data)
+        this.sendCV.emit(data);
         if(this.options.isAdminPage){
             //HR sayfasında başarı
 

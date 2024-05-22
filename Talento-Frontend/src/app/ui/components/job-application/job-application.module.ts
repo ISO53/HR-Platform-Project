@@ -6,6 +6,7 @@ import { FileUploadModule } from 'src/app/services/common/file-upload/file-uploa
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatChipsModule} from '@angular/material/chips';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {MatChipsModule} from '@angular/material/chips';
     JobApplicationComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule.forChild([
       {path:"",component:JobApplicationComponent}
