@@ -35,8 +35,8 @@ export class FileUploadComponent {
     }).pipe(
       switchMap((firstResponse) =>{
         this.source_id=firstResponse;
-        console.log("file uploaded succesfully,",firstResponse);
-        console.log(firstResponse["sourceId"]);
+        //console.log("file uploaded succesfully,",firstResponse);
+       // console.log(firstResponse["sourceId"]);
         
         return this.httpClientService.post(this.options.url_message,{
           "sourceId": this.source_id["sourceId"],
@@ -71,8 +71,8 @@ export class FileUploadComponent {
     ).subscribe({
       next : (data) =>{
         const message = "data is got successfully";
-        console.log(message);
-        console.log(data)
+       //console.log(message);
+        //console.log(data)
         this.sendCV.emit(data);
         if(this.options.isAdminPage){
             //HR sayfasında başarı
@@ -84,8 +84,8 @@ export class FileUploadComponent {
       },
       error: (error:HttpErrorResponse) =>{
         const message = "data is not got or file uploaded successfully";
-        console.log(message);
-        console.log(error);
+        //console.log(message);
+        //console.log(error);
         
         if(this.options.isAdminPage){
             //HR sayfasında hata

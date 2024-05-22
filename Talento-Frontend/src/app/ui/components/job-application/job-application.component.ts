@@ -47,7 +47,7 @@ export class JobApplicationComponent {
     url_message:"https://api.chatpdf.com/v1/chats/message"
   };
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private router: Router,private route: ActivatedRoute, private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -168,5 +168,56 @@ export class JobApplicationComponent {
     for(let element of event.certificates){
       this.certificates.push({name:element});
     }
+    if(!Array.isArray(this.businessExperience) ){
+      this.businessExperience = this.businessExperience.split(",");
+    }
+  }
+  postApplication(){
+    console.log(JSON.parse(localStorage["user"])["userId"]);
+    console.log(this.route.snapshot.paramMap.get('id'));
+    console.log(this.businessExperience);
+    const languagesArr = []
+    const certificatesArr = []
+    const skillsArr = []
+    for(let element of this.languages){
+      languagesArr.push(element["name"]);
+    }
+    for(let element of this.certificates){
+      certificatesArr.push(element["name"]);
+    } 
+    for(let element of this.skills){
+      skillsArr.push(element["name"]);
+    }
+
+   const data = {
+    "advertID": this.route.snapshot.paramMap.get('id'),
+    "userID": JSON.parse(localStorage["user"])["userId"],
+    "name": this.name,
+    "surname": this.surname,
+    "email": this.email,
+    "address": this.address,
+    "undergraduateEducation": this.undergrade,
+    "mastersDegreeOrDoctorate": this.mastergrade,
+    "dateOfGraduation": this.graduateDateUnder,
+    "businessExperience": this.businessExperience,
+    "githubUrl": this.github,
+    "skills": skillsArr,
+    "certificates": certificatesArr,
+    "languages": languagesArr,
+    "cvScore" : this.cvscore
+   };
+   console.log(data);
+
+    const url ="http://localhost:8080/application/create";
+    this.http.post<any>(url,data).subscribe({
+      next: (data) =>{
+
+        
+      },
+      error: (message) =>{
+          
+      }
+    });
+    this.router.navigate(['/']);
   }
 }
