@@ -179,6 +179,7 @@ export class JobApplicationComponent {
     const languagesArr = []
     const certificatesArr = []
     const skillsArr = []
+    const expericence =[]
     for(let element of this.languages){
       languagesArr.push(element["name"]);
     }
@@ -187,6 +188,12 @@ export class JobApplicationComponent {
     } 
     for(let element of this.skills){
       skillsArr.push(element["name"]);
+    }
+    if(typeof this.businessExperience[0] === "object"){
+      for(let element of this.businessExperience){
+        expericence.push(element["title"]);
+      }
+      this.businessExperience=expericence;
     }
 
    const data = {
@@ -211,11 +218,12 @@ export class JobApplicationComponent {
     const url ="http://localhost:8080/application/create";
     this.http.post<any>(url,data).subscribe({
       next: (data) =>{
-
+        console.log("basarili");
+        
         
       },
       error: (message) =>{
-          
+          console.log("hatali")
       }
     });
     this.router.navigate(['/']);
