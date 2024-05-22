@@ -1,1 +1,36 @@
-<p>users works!</p>
+<div class="profile-details">
+  <img class="profile-details__image" [src]="data.profilePictureUrl" alt="User Profile Picture" />
+  <h1 class="profile-details__name">{{ data.userName }} {{ data.userLastName }}</h1>
+  <h2 class="profile-details__email">{{ data.email }}</h2>
+  <h3 class="profile-details__phone">{{ data.phoneNumber }}</h3>
+  <h4 class="profile-details__role">{{ data.role }}</h4>
+  <p class="profile-details__address">{{ data.address }}</p>
+
+  <div class="profile-details__edit-section">
+    <h4>Edit Profile</h4>
+    <form (ngSubmit)="updateProfile()">
+      <label for="userName">First Name:</label>
+
+      <label for="userLastName">Last Name:</label>
+      <input type="text" id="userLastName" [(ngModel)]="data.userLastName" name="userLastName" required />
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="data.email" name="email" required />
+      
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" [(ngModel)]="data.phoneNumber" name="phoneNumber" required />
+      
+      <label for="address">Address:</label>
+      <textarea id="address" [(ngModel)]="data.address" name="address"></textarea>
+      
+      <label for="profilePictureUrl">Profile Picture URL:</label>
+      <input type="text" id="profilePictureUrl" [(ngModel)]="data.profilePictureUrl" name="profilePictureUrl" />
+      
+      <label for="role">Role:</label>
+      <input type="text" id="role" [(ngModel)]="data.role" name="role" required />
+      
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</div>
+
