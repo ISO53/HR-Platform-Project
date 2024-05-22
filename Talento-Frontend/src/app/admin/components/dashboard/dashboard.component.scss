@@ -121,10 +121,6 @@
   font-weight: 500;
 }
 
-.bars {
-
-}
-
 .bar {
   width: 10%;
   background-color: black;
@@ -132,12 +128,41 @@
   margin: 10px 0 0 0;
   color: lightgrey;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 10px;
   border-radius: 10px;
   text-wrap: nowrap;
   transition: width 1s ease;
+}
+
+.hor {
+  width: 100%;
+  margin: 0 10px 0 0;
+  height: 20%;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  transition: height 1s ease;
+}
+
+.date {
+  writing-mode: vertical-lr;
+  margin-top: 10px;
+}
+
+.hor:last-child {
+  margin: 0;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  align-items: flex-end;
 }
 
 .bottom-line {

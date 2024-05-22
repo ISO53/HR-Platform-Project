@@ -27,4 +27,15 @@ export class UsersComponent implements OnInit {
       console.error('Error updating profile', error);
     });
   }
+
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.data.profilePictureUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 }

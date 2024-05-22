@@ -35,6 +35,33 @@
             bulunmaktadır.</p>
         </div>
       </div>
+
+      <div class="chart">
+        <h1 style="text-align: center;">Tarihe Göre İlan Sayıları</h1>
+        <div class="bars horizontal">
+          <div class="bar hor" [style.height]="adverts.count[0] * 10 + '%' ">{{ adverts.count[0] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[1] * 10 + '%' ">{{ adverts.count[1] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[2] * 10 + '%' ">{{ adverts.count[2] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[3] * 10 + '%' ">{{ adverts.count[3] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[4] * 10 + '%' ">{{ adverts.count[4] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[5] * 10 + '%' ">{{ adverts.count[5] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[6] * 10 + '%' ">{{ adverts.count[6] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[7] * 10 + '%' ">{{ adverts.count[7] }}</div>
+          <div class="bar hor" [style.height]="adverts.count[8] * 10 + '%' ">{{ adverts.count[8] }}</div>
+        </div>
+        <span class="bottom-line"></span>
+        <div class="numbers">
+          <h3 class="date">{{ adverts.uploadDate[0] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[1] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[2] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[3] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[4] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[5] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[6] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[7] }}</h3>
+          <h3 class="date">{{ adverts.uploadDate[8] }}</h3>
+        </div>
+      </div>
     </div>
 
     <div class="calendar-outer-div">
@@ -62,11 +89,26 @@
       <div class="chart">
         <h1 style="text-align: center;">Top 5 Başvuran</h1>
         <div class="bars">
-          <div class="bar" [style.width]="data.cvScore[0] + '%' ">{{data.name[0]}} ({{data.cvScore[0]}})</div>
-          <div class="bar" [style.width]="data.cvScore[1] + '%' ">{{data.name[1]}} ({{data.cvScore[1]}})</div>
-          <div class="bar" [style.width]="data.cvScore[2] + '%' ">{{data.name[2]}} ({{data.cvScore[2]}})</div>
-          <div class="bar" [style.width]="data.cvScore[3] + '%' ">{{data.name[3]}} ({{data.cvScore[3]}})</div>
-          <div class="bar" [style.width]="data.cvScore[4] + '%' ">{{data.name[4]}} ({{data.cvScore[4]}})</div>
+          <div class="bar"
+               [style.width]="data.cvScore[0] + '%' ">{{ data.name[0] }}
+            ({{ data.cvScore[0] }})
+          </div>
+          <div class="bar"
+               [style.width]="data.cvScore[1] + '%' ">{{ data.name[1] }}
+            ({{ data.cvScore[1] }})
+          </div>
+          <div class="bar"
+               [style.width]="data.cvScore[2] + '%' ">{{ data.name[2] }}
+            ({{ data.cvScore[2] }})
+          </div>
+          <div class="bar"
+               [style.width]="data.cvScore[3] + '%' ">{{ data.name[3] }}
+            ({{ data.cvScore[3] }})
+          </div>
+          <div class="bar"
+               [style.width]="data.cvScore[4] + '%' ">{{ data.name[4] }}
+            ({{ data.cvScore[4] }})
+          </div>
         </div>
         <span class="bottom-line"></span>
         <div class="numbers">
