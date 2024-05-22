@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       useFactory: adapterFactory,
     }),
     NgbModule,
+    NgChartsModule,
   ],
   providers: [
     {provide: "baseUrl", useValue:"localhost:4200/"}
