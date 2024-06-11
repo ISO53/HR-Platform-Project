@@ -1,13 +1,9 @@
 package iso53.talento.controller;
 
-import iso53.talento.model.Advert;
 import iso53.talento.model.Application;
-import iso53.talento.model.Company;
-import iso53.talento.model.User;
 import iso53.talento.service.AdvertService;
 import iso53.talento.service.ApplicationService;
 import iso53.talento.service.CompanyService;
-import iso53.talento.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
