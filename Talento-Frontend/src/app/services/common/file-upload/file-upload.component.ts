@@ -30,7 +30,7 @@ export class FileUploadComponent {
     
     this.httpClientService.post(this.options.url_upload,fileData,{
       headers: new HttpHeaders({
-        "x-api-key":"sec_blHXw7Lmh7V40YeXJeuoMWBqjNBhMXep",
+        "x-api-key":"API_KEY_HERE",
       })
     }).pipe(
       switchMap((firstResponse) =>{
@@ -63,7 +63,7 @@ export class FileUploadComponent {
           ]
         },{
           headers: new HttpHeaders({
-            "x-api-key":"sec_blHXw7Lmh7V40YeXJeuoMWBqjNBhMXep",
+            "x-api-key":"API_KEY_HERE",
             "Content-Type": "application/json",
           })
         })
