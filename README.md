@@ -1,8 +1,11 @@
 <p align="center">
-  <img src="Talento-Files/logo_white.png"/>
+  <picture>
+    <source srcset="Talento-Files/logo_white.png" media="(prefers-color-scheme: dark)">
+    <img src="Talento-Files/logo_dark.png" alt="Logo">
+  </picture>
 </p>
 <p align="center">
-    <h1 align="center">HR-PLATFORM-PROJECT</h1>
+    <h1 align="center">HR-Platform-Project</h1>
 </p>
 <p align="center">
     <em><code>A Comprehensive Human Resources (HR) Platform</code></em>
