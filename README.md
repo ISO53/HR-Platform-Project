@@ -214,3 +214,11 @@ Application uses MongoDB as database. To connect to DB with Backend you must run
 ## Additional Files
 
 The `Talento-Files` directory contains additional resources for the project. These files includes Entity Relationship Diagrams, Use Case Diagrams, Revenue Models, Risk Analysis, Sequence Diagrams, Scenarios and Microsoft Project Management file (.mpp). Basically diagrams and tables that show what this project is.
+
+## Contributing
+
+Your contributions are valued! We appreciate your cooperation in making our project better.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE). Feel free to modify the content and structure based on your preferences and project specifics.
