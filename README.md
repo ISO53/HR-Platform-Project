@@ -149,8 +149,6 @@ This application is a comprehensive Human Resources (HR) platform designed to st
         └── tsconfig.spec.json
 ```
 
-<br>
-
 ## Backend
 
 The backend of this project serves as a job portal where companies can post job adverts and users can apply for them. It provides features for managing user profiles and company details, and allows users to find job adverts posted by the company they work for. The application is built using Java, Spring Boot, and MongoDB.
@@ -177,8 +175,6 @@ The backend of this project serves as a job portal where companies can post job 
 
 > The program will be serving on port 8080.
 
-<br>
-
 ## Frontend
 
 The frontend of this project is built with TypeScript, JavaScript, NPM, and Angular.
@@ -203,13 +199,9 @@ The frontend of this project is built with TypeScript, JavaScript, NPM, and Angu
 
 > The program will be serving on port 4200.
 
-<br>
-
 ## Database
 
 Application uses MongoDB as database. To connect to DB with Backend you must run a MongoDB service on your computer. If you want mock data you can use the [restore_db.bat](Talento-DB/restore_db.bat) file.
-
-<br>
 
 ## Additional Files
 
